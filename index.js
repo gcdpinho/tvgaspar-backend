@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = 3000; //porta padrão
 const mysql = require('mysql');
-const teste = require('./modules.js')
+const teste = require('./model/categoria.js')
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -17,17 +17,22 @@ router.get('/', (req, res) => res.json({
 app.use('/', router);
 app.listen(process.env.PORT || port);
 console.log('API funcionando!');
-
+var tt = new teste({
+    id: 1,
+    titulo: "teste",
+    link: "teste.com"
+});
 router.get('/clientes', (req, res) =>{
-    list("SELECT * FROM visitas limit 1",res);
+    console.log(tt);
+    //list("SELECT * FROM visitas limit 1",res);
 })
 
 function list(query, res){
     const connection = mysql.createConnection({
-        host: 'mysql01.tvgaspar.hospedagemdesites.ws',
-        user: 'tvgaspar',
-        password: 'inovasse',
-        database: 'tvgaspar'
+        host: 'mysql.hostinger.com.br',
+        user: 'u709009684_tvgas',
+        password: 'tvgaspar12345',
+        database: '	u709009684_tvgas'
     });
     
     connection.query(query, function(error, results, fields){
