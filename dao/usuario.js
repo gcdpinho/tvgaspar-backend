@@ -20,15 +20,14 @@ const getAllUsuarios = function (req, res, data) {
 }
 
 const findByNome = function (req, res) {
-    console.log(req.query.nome);
-    service(query.selectByNome, req, res, req.body.nome, function (results) {
+    service(query.selectByNome, req, res, req.query.nome, function (results) {
         if (!results)
             res.json({
                 success: false,
                 message: "Falha na autenticação. Usuário não encontrado."
             });
         else {
-            if (result.senha != req.body.senha)
+            if (result.senha != req.query.senha)
                 res.json({
                     success: false,
                     message: "Falha na autenticação. Senha inválida."
