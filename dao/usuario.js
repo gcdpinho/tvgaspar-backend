@@ -31,7 +31,7 @@ const findByNome = function (req, res) {
             var rows = JSON.parse(JSON.stringify(results[0]))
             const decipher = crypto.createDecipher(config.criptografia.alg, config.criptografia.secret);
             decipher.update(rows.senha, config.criptografia.tipo);
-            if (decipher.final() != req.query.senha)
+            if (decipher.final() != req.body.senha)
                 res.json({
                     success: false,
                     message: "Falha na autenticação. Senha inválida."
