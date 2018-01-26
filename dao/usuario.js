@@ -27,7 +27,9 @@ const findByNome = function (req, res) {
                 message: "Falha na autenticação. Usuário não encontrado."
             });
         else {
-            if (res.senha != req.query.senha)
+            const decipher = crypto.createDecipher(config.criptografia.alg, config.criptografia.secret);
+            decipher.update(res.senha, config.criptografia.tipo);
+            if (decipher.final() != req.query.senha)
                 res.json({
                     success: false,
                     message: "Falha na autenticação. Senha inválida."
