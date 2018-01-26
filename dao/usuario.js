@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const config = require('./../config.js');
 const crypto = require("crypto");
+var jwt = require('jsonwebtoken');
 const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
 
 const query = {
@@ -21,14 +22,15 @@ const getAllUsuarios = function (req, res, data) {
 
 const findByNome = function (req, res) {
     service(query.selectByNome, req, res, req.query.nome, function (results) {
-        if (!res)
+        if (!results)
             res.json({
                 success: false,
                 message: "Falha na autenticação. Usuário não encontrado."
             });
         else {
+            var rows = JSON.parse(JSON.stringify(results[0]))
             const decipher = crypto.createDecipher(config.criptografia.alg, config.criptografia.secret);
-            decipher.update(res.senha, config.criptografia.tipo);
+            decipher.update(rows.senha, config.criptografia.tipo);
             if (decipher.final() != req.query.senha)
                 res.json({
                     success: false,
@@ -36,10 +38,10 @@ const findByNome = function (req, res) {
                 });
             else {
                 const payload = {
-                    admin: res.adm.data[0] == 1 ? true : false
+                    admin: rows.adm.data[0] == 1 ? true : false
                 };
                 var token = jwt.sign(payload, config.criptografia.secret, {
-                    expiresInMinutes: 1440 // expires in 24 hours
+                    expiresIn: "1d" // expires in 24 hours
                 });
 
                 res.json({
