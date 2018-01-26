@@ -2,11 +2,7 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const bodyParser = require('body-parser');
-const usuario = require('./routes/usuario.js')(router, {
-    nome: "teste", 
-    senha: "teste",
-    adm: 0
-});
+const usuario = require('./routes/usuario.js')(router);
 
 app.use(bodyParser.urlencoded({
     extended: true

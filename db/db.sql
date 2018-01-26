@@ -3,6 +3,7 @@ CREATE TABLE usuario (
     nome varchar(255) NOT NULL UNIQUE,
     senha varchar(255) NOT NULL,
     adm BIT DEFAULT 0,
+    token varchar(255)
     PRIMARY KEY (id)
 );
 

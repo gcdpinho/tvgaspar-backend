@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 const config = require('./../config.js');
 const crypto = require("crypto");
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
 
 const query = {
@@ -16,12 +16,12 @@ const createUsuario = function (req, res, data) {
     service(query.insert, req, res, [data.nome, data.senha, data.adm], "");
 }
 
-const getAllUsuarios = function (req, res, data) {
+const getAllUsuarios = function (req, res) {
     service(query.selectAll, req, res, "", "");
 }
 
 const findByNome = function (req, res) {
-    service(query.selectByNome, req, res, req.query.nome, function (results) {
+    service(query.selectByNome, req, res, req.body.nome ,function (results) {
         if (!results)
             res.json({
                 success: false,
