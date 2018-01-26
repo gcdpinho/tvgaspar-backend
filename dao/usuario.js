@@ -21,20 +21,20 @@ const getAllUsuarios = function (req, res, data) {
 
 const findByNome = function (req, res) {
     service(query.selectByNome, req, res, req.query.nome, function (results) {
-        if (!results)
+        if (!res)
             res.json({
                 success: false,
                 message: "Falha na autenticação. Usuário não encontrado."
             });
         else {
-            if (result.senha != req.query.senha)
+            if (res.senha != req.query.senha)
                 res.json({
                     success: false,
                     message: "Falha na autenticação. Senha inválida."
                 });
             else {
                 const payload = {
-                    admin: result.adm.data[0] == 1 ? true : false
+                    admin: res.adm.data[0] == 1 ? true : false
                 };
                 var token = jwt.sign(payload, config.criptografia.secret, {
                     expiresInMinutes: 1440 // expires in 24 hours
