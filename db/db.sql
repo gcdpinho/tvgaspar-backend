@@ -1,4 +1,10 @@
-CREATE DATABASE tvgaspar CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE TABLE usuario (
+    id int NOT NULL AUTO_INCREMENT,
+    nome varchar(255) NOT NULL UNIQUE,
+    senha varchar(255) NOT NULL,
+    adm BIT DEFAULT 0,
+    PRIMARY KEY (id)
+);
 
 CREATE TABLE imagem (
     id int NOT NULL AUTO_INCREMENT,
