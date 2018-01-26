@@ -20,7 +20,7 @@ const getAllUsuarios = function (req, res, data) {
 }
 
 const findByNome = function (req, res) {
-    console.log(req.body);
+    console.log(req.query.nome);
     service(query.selectByNome, req, res, req.body.nome, function (results) {
         if (!results)
             res.json({
