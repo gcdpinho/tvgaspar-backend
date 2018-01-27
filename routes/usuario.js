@@ -4,6 +4,10 @@ const jwt = require('jsonwebtoken');
 
 module.exports = function (router) {
 
+    router.post('/login', (req, res) => {
+        usuario.findByNome(req, res);
+    });
+
     router.use(function (req, res, next) {
         var token = req.body.token || req.query.token || req.headers['token'];
 
@@ -25,7 +29,7 @@ module.exports = function (router) {
                 message: "Requisição sem token."
             });
     });
-    
+
     router.get('/createUsuario', (req, res) => {
         usuario.createUsuario(req, res);
     });
@@ -34,7 +38,4 @@ module.exports = function (router) {
         usuario.getAllUsuarios(req, res);
     });
 
-    router.post('/login', (req, res) => {
-        usuario.findByNome(req, res);
-    });
 }
