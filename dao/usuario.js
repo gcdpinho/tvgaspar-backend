@@ -53,11 +53,13 @@ const findByNome = function (req, res) {
                     success: true,
                     message: 'Token criado com sucesso.',
                 });
-
+                
                 updateToken(req, res, {
                     token: token,
                     nome: req.body.nome
                 });
+
+                localStorage.setItem("token", token);
             }
         }
     });
