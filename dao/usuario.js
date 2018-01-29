@@ -53,7 +53,7 @@ const findByNome = function (req, res) {
                     token: token,
                     nome: req.body.nome
                 });
-
+                
                 res.json({
                     success: true,
                     message: 'Token criado com sucesso.',
