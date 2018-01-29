@@ -14,7 +14,7 @@ const verifyToken = function (req, res, next) {
                     var newToken = usuario.createToken(req, res, req.body.adm);
                     req.body.token = newToken;
                     req.query.token = newToken;
-                    verifyToken(req, res, next);                    
+                    verifyToken();                    
                 }
                 return res.json({
                     sucess: false,
