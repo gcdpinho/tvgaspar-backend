@@ -12,6 +12,7 @@ const verifyToken = function (req, res, next) {
                     req.body.nome = req.query.nome;
                     req.body.adm = req.query.adm;
                     usuario.createToken(req, res, req.body.adm);
+                    next();
                 }
                 return res.json({
                     sucess: false,
