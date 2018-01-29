@@ -42,15 +42,15 @@ const findByNome = function (req, res) {
                     message: "Falha na autenticação. Senha inválida."
                 });
             else {
-                createToken(req, res);
+                createToken(req, res, rows.adm.data[0]);
             }
         }
     });
 }
 
-const createToken = function (req, res) {
+const createToken = function (req, res, adm) {
     const payload = {
-        admin: rows.adm.data[0] == 1 ? true : false
+        admin: adm == 1 ? true : false
     };
     var token = jwt.sign(payload, config.criptografia.secret, {
         expiresIn: "1d" // expires in 24 hours
