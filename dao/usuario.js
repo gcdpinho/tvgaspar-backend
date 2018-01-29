@@ -18,7 +18,7 @@ const createUsuario = function (req, res) {
 }
 
 const updateToken = function (req, res, data) {
-    service(query.updateToken, req, res, [data.token, data.nome], "");
+    service(query.updateToken, req, res, [data.token, data.nome], function(){return;});
 }
 
 const getAllUsuarios = function (req, res) {
@@ -48,15 +48,15 @@ const findByNome = function (req, res) {
                 var token = jwt.sign(payload, config.criptografia.secret, {
                     expiresIn: "1d" // expires in 24 hours
                 });
+               
+                updateToken(req, res, {
+                    token: token,
+                    nome: req.body.nome
+                });
                 
                 res.json({
                     success: true,
                     message: 'Token criado com sucesso.',
-                });
-
-                updateToken(req, res, {
-                    token: token,
-                    nome: req.body.nome
                 });
             }
         }
