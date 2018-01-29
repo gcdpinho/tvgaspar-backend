@@ -48,18 +48,18 @@ const findByNome = function (req, res) {
                 var token = jwt.sign(true, config.criptografia.secret, {
                     expiresIn: "1d" // expires in 24 hours
                 });
-
-                res.json({
-                    success: true,
-                    message: 'Token criado com sucesso.',
-                });
-                
+               
                 updateToken(req, res, {
                     token: token,
                     nome: req.body.nome
                 });
 
                 window.localStorage.setItem("token", token);
+
+                res.json({
+                    success: true,
+                    message: 'Token criado com sucesso.',
+                });
             }
         }
     });
