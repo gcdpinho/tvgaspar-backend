@@ -32,6 +32,10 @@ module.exports = function (router) {
 
     router.use(verifyToken);
 
+    router.post('/findByToken', (req, res) => {
+        usuario.findByToken(req, res);
+    });
+
     router.post('/createUsuario', (req, res) => {
         usuario.createUsuario(req, res);
     });
