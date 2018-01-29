@@ -32,11 +32,11 @@ module.exports = function (router) {
 
     router.use(verifyToken);
 
-    router.get('/createUsuario', (req, res) => {
+    router.post('/createUsuario', (req, res) => {
         usuario.createUsuario(req, res);
     });
 
-    router.get('/getAllUsuarios', (req, res) => {
+    router.post('/getAllUsuarios', (req, res) => {
         usuario.getAllUsuarios(req, res);
     });
 
