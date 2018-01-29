@@ -87,5 +87,5 @@ module.exports = {
     createUsuario,
     getAllUsuarios,
     findByNome,
-    updateToken
+    createToken
 };
