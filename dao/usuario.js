@@ -65,6 +65,8 @@ const createToken = function (req, res, adm) {
         success: true,
         message: 'Token criado com sucesso.',
     });
+
+    return token;
 }
 
 const service = function (query, req, res, data, callback) {

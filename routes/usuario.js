@@ -11,9 +11,11 @@ const verifyToken = function (req, res, next) {
                 if (error.name == "TokenExpiredError") {
                     req.body.nome = req.query.nome;
                     req.body.adm = req.query.adm;
-                    usuario.createToken(req, res, req.body.adm);
-                    req.decoded = decoded;
-                    next();
+                    var newToken = usuario.createToken(req, res, req.body.adm);
+                    req.body.token = newToken;
+                    req.query.token = newToken;
+                    req.headers['token'] = newToken;
+                    verifyToken(req, res, next);                    
                 }
                 return res.json({
                     sucess: false,
