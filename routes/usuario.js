@@ -12,6 +12,7 @@ const verifyToken = function (req, res, next) {
                     req.body.nome = req.query.nome;
                     req.body.adm = req.query.adm;
                     usuario.createToken(req, res, req.body.adm);
+                    req.decoded = decoded;
                     next();
                 }
                 return res.json({
@@ -49,5 +50,5 @@ module.exports = function (router) {
     });
 
 
-    
+
 }
