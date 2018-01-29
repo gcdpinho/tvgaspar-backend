@@ -26,7 +26,7 @@ const verifyToken = function (req, res, next) {
 
 module.exports = function (router) {
 
-    router.post('/login', (req, res) => {
+    router.get('/login', (req, res) => {
         usuario.findByNome(req, res);
     });
 

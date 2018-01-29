@@ -29,8 +29,9 @@ const getAllUsuarios = function (req, res) {
 }
 
 const findByNome = function (req, res) {
-    service(query.selectByNome, req, res, req.body.nome, function (results) {
-        if (!results)
+    service(query.selectByNome, req, res, req.query.nome, function (results) {
+        
+        if (isEmptyObject(results))
             res.json({
                 success: false,
                 message: "Falha na autenticação. Usuário não encontrado."
@@ -68,7 +69,17 @@ const findByNome = function (req, res) {
 }
 
 const findByToken = function (req, res) {
-    service(query.selectByToken, req, res, req.body.token, "");
+    service(query.selectByToken, req, res, req.query.token, "");
+}
+
+function isEmptyObject(obj) {
+    var name;
+    for (name in obj) {
+        if (obj.hasOwnProperty(name)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 const service = function (query, req, res, data, callback) {
