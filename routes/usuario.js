@@ -13,11 +13,13 @@ module.exports = function (router) {
 
         if (token) {
             jwt.verify(token, config.criptografia.secret, function (error, decoded) {
-                if (error)
+                if (error) {
+                    console.log(error);
                     return res.json({
                         sucess: false,
                         message: "Falha ao autenticar o token."
                     });
+                }
                 else {
                     req.decoded = decoded;
                     next();

@@ -54,8 +54,6 @@ const findByNome = function (req, res) {
                     nome: req.body.nome
                 });
 
-                //window.localStorage.setItem("token", token);
-
                 res.json({
                     success: true,
                     message: 'Token criado com sucesso.',
