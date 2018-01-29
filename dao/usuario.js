@@ -26,7 +26,7 @@ const getAllUsuarios = function (req, res) {
 }
 
 const findByNome = function (req, res) {
-    service(query.selectByNome, req, res, req.body.nome, function (results) {
+    service(query.selectByNome, req, res, req.body.nome ,function (results) {
         if (!results)
             res.json({
                 success: false,
@@ -42,31 +42,25 @@ const findByNome = function (req, res) {
                     message: "Falha na autenticação. Senha inválida."
                 });
             else {
-                createToken(req, res, rows.adm.data[0]);
+                const payload = {
+                    admin: rows.adm.data[0] == 1 ? true : false
+                };
+                var token = jwt.sign(payload, config.criptografia.secret, {
+                    expiresIn: "1d" // expires in 24 hours
+                });
+               
+                updateToken(req, res, {
+                    token: token,
+                    nome: req.body.nome
+                });
+
+                res.json({
+                    success: true,
+                    message: 'Token criado com sucesso.',
+                });
             }
         }
     });
-}
-
-const createToken = function (req, res, adm) {
-    const payload = {
-        admin: adm == 1 ? true : false
-    };
-    var token = jwt.sign(payload, config.criptografia.secret, {
-        expiresIn: "1d" // expires in 24 hours
-    });
-
-    updateToken(req, res, {
-        token: token,
-        nome: req.body.nome
-    });
-
-    res.json({
-        success: true,
-        message: 'Token criado com sucesso.',
-    });
-
-    return token;
 }
 
 const service = function (query, req, res, data, callback) {
@@ -88,6 +82,5 @@ const service = function (query, req, res, data, callback) {
 module.exports = {
     createUsuario,
     getAllUsuarios,
-    findByNome,
-    createToken
+    findByNome
 };

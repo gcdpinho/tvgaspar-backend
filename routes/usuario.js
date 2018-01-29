@@ -7,20 +7,12 @@ const verifyToken = function (req, res, next) {
 
     if (token) {
         jwt.verify(token, config.criptografia.secret, function (error, decoded) {
-            if (error) {
-                if (error.name == "TokenExpiredError") {
-                    req.body.nome = req.query.nome;
-                    req.body.adm = req.query.adm;
-                    var newToken = usuario.createToken(req, res, req.body.adm);
-                    req.body.token = newToken;
-                    req.query.token = newToken;
-                    verifyToken();                    
-                }
+            if (error)
                 return res.json({
                     sucess: false,
                     message: "Falha ao autenticar o token."
                 });
-            } else {
+            else {
                 req.decoded = decoded;
                 next();
             }
@@ -31,8 +23,6 @@ const verifyToken = function (req, res, next) {
             message: "Requisição sem token."
         });
 }
-
-
 
 module.exports = function (router) {
 
@@ -49,7 +39,5 @@ module.exports = function (router) {
     router.get('/getAllUsuarios', (req, res) => {
         usuario.getAllUsuarios(req, res);
     });
-
-
 
 }
