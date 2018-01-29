@@ -9,10 +9,9 @@ const verifyToken = function (req, res, next) {
         jwt.verify(token, config.criptografia.secret, function (error, decoded) {
             if (error) {
                 if (error.name == "TokenExpiredError") {
-                    console.log(req.query.nome);
                     req.body.nome = req.query.nome;
                     req.body.adm = req.query.adm;
-                    usuario.createToken(res, req, req.body.adm);
+                    usuario.createToken(req, res, req.body.adm);
                 }
                 return res.json({
                     sucess: false,
