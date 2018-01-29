@@ -8,31 +8,7 @@ module.exports = function (router) {
         usuario.findByNome(req, res);
     });
 
-    router.use(function (req, res, next) {
-        var token = req.body.token || req.query.token || req.headers['token'];
-
-        if (token) {
-            jwt.verify(token, config.criptografia.secret, function (error, decoded) {
-                if (error) {
-                    if (error.name == "TokenExpiredError"){
-                        console.log("expirado")
-                    }
-                    return res.json({
-                        sucess: false,
-                        message: "Falha ao autenticar o token."
-                    });
-                }
-                else {
-                    req.decoded = decoded;
-                    next();
-                }
-            });
-        } else
-            return res.status(403).send({
-                sucess: false,
-                message: "Requisição sem token."
-            });
-    });
+    router.use(verifyToken);
 
     router.get('/createUsuario', (req, res) => {
         usuario.createUsuario(req, res);
@@ -42,4 +18,30 @@ module.exports = function (router) {
         usuario.getAllUsuarios(req, res);
     });
 
+
+    const verifyToken = function (req, res, next) {
+        var token = req.body.token || req.query.token || req.headers['token'];
+
+        if (token) {
+            jwt.verify(token, config.criptografia.secret, function (error, decoded) {
+                if (error) {
+                    if (error.name == "TokenExpiredError") {
+                        req.body.nome = req.query.nome;
+                        usuario.createToken(res, req);
+                    }
+                    return res.json({
+                        sucess: false,
+                        message: "Falha ao autenticar o token."
+                    });
+                } else {
+                    req.decoded = decoded;
+                    next();
+                }
+            });
+        } else
+            return res.status(403).send({
+                sucess: false,
+                message: "Requisição sem token."
+            });
+    }
 }
