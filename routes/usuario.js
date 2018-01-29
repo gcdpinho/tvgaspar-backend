@@ -14,7 +14,9 @@ module.exports = function (router) {
         if (token) {
             jwt.verify(token, config.criptografia.secret, function (error, decoded) {
                 if (error) {
-                    console.log(error);
+                    if (error.name == "TokenExpiredError"){
+                        console.log("expirado")
+                    }
                     return res.json({
                         sucess: false,
                         message: "Falha ao autenticar o token."
