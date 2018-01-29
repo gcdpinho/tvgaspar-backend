@@ -29,7 +29,7 @@ const getAllUsuarios = function (req, res) {
 }
 
 const findByNome = function (req, res) {
-    service(query.selectByNome, req, res, req.query.nome, function (results) {
+    service(query.selectByNome, req, res, req.body.nome, function (results) {
         
         if (isEmptyObject(results))
             res.json({
@@ -69,7 +69,7 @@ const findByNome = function (req, res) {
 }
 
 const findByToken = function (req, res) {
-    service(query.selectByToken, req, res, req.query.token, "");
+    service(query.selectByToken, req, res, req.body.token, "");
 }
 
 function isEmptyObject(obj) {
