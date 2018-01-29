@@ -213,7 +213,7 @@ const camera_debate2012 = {
 }
 
 const camera_gasparnews = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'gaspar_news' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'gaspar_news' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_video: "SELECT v.*, c.nome_categoria FROM video v, produto_categoria c WHERE v.sit = 1 AND v.id_categoria = c.id AND v.id_categoria = '31' AND v.id_video_pai = '' ORDER BY v.id DESC LIMIT 9",
     select_popup: "SELECT * FROM popup WHERE popup = 6 OR popup = 5 ORDER BY id DESC LIMIT 1",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'gaspar_news' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -221,7 +221,7 @@ const camera_gasparnews = {
 }
 
 const camera_gasparnews1 = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'gaspar_news' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'gaspar_news' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_video: "SELECT v.*, c.nome_categoria FROM video v, produto_categoria c WHERE v.sit = 1 AND v.id_categoria = c.id AND v.id_categoria = '31' AND v.id_video_pai = '' ORDER BY v.id DESC LIMIT 9",
     select_popup: "SELECT * FROM popup WHERE popup = 6 OR popup = 5 ORDER BY id DESC LIMIT 1",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'gaspar_news' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -229,7 +229,7 @@ const camera_gasparnews1 = {
 }
 
 const camera_ilhota = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_ilhota' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_ilhota' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('camera_ilhota', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'camera_ilhota'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'camera_ilhota' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -237,7 +237,7 @@ const camera_ilhota = {
 }
 
 const camera_ilhota_balsa = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'ilhota_balsa' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'ilhota_balsa' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('ilhota_balsa', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'ilhota_balsa'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'ilhota_balsa' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -245,7 +245,7 @@ const camera_ilhota_balsa = {
 }
 
 const camera_ilhota1 = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_ilhota' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_ilhota' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('camera_ilhota', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'camera_ilhota'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'camera_ilhota' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -253,7 +253,7 @@ const camera_ilhota1 = {
 }
 
 const camera_morro_parapente = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_ponte' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_ponte' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('cam_ponte', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'cam_ponte'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'camera_ponte' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -261,7 +261,7 @@ const camera_morro_parapente = {
 }
 
 const camera_nereu_ramos = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_nereu' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_nereu' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('cam_nereu', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'cam_nereu'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'camera_nereu' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -269,7 +269,7 @@ const camera_nereu_ramos = {
 }
 
 const camera_saojose_just = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_saojose' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_saojose' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_video: "SELECT DISTINCT p.nome_categoria, p.id FROM produto_categoria p, video v WHERE p.sit = 1 AND v.sit = 1 AND v.id_categoria = p.id ORDER BY p.nome_categoria",
     select_informativo: "SELECT DISTINCT p.nome_categoria, p.id FROM produto_categoria p, informativo v WHERE p.sit = 1 AND v.id_categoria = p.id ORDER BY p.nome_categoria",
@@ -278,7 +278,7 @@ const camera_saojose_just = {
 }
 
 const camera_saojose_just1 = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_saojose' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_saojose' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_video: "SELECT DISTINCT p.nome_categoria, p.id FROM produto_categoria p, video v WHERE p.sit = 1 AND v.sit = 1 AND v.id_categoria = p.id ORDER BY p.nome_categoria",
     select_informativo: "SELECT DISTINCT p.nome_categoria, p.id FROM produto_categoria p, informativo v WHERE p.sit = 1 AND v.id_categoria = p.id ORDER BY p.nome_categoria",
@@ -287,7 +287,7 @@ const camera_saojose_just1 = {
 }
 
 const camera_nereu_ramos_310 = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_nereu_310' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_nereu_310' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('cam_nereu_310', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'cam_nereu_310'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'camera_nereu_310' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -295,7 +295,7 @@ const camera_nereu_ramos_310 = {
 }
 
 const camera_saojose = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_saojose' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_saojose' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_video: "SELECT DISTINCT p.nome_categoria, p.id FROM produto_categoria p, video v WHERE p.sit = 1 AND v.sit = 1 AND v.id_categoria = p.id ORDER BY p.nome_categoria",
     select_informativo: "SELECT DISTINCT p.nome_categoria, p.id FROM produto_categoria p, informativo v WHERE p.sit = 1 AND v.id_categoria = p.id ORDER BY p.nome_categoria",
@@ -304,7 +304,7 @@ const camera_saojose = {
 }
 
 const camera_programa_versatil = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_versatil' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_versatil' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_video: "SELECT v.*, c.nome_categoria FROM video v, produto_categoria c WHERE v.sit = 1 AND v.id_categoria = c.id AND v.id_categoria = '40' AND v.id_video_pai = '' ORDER BY v.id DESC LIMIT 9",
     select_popup: "SELECT * FROM popup WHERE popup = 7 OR popup = 8 ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('cam_versatil', 1, 1, ?)",
@@ -314,7 +314,7 @@ const camera_programa_versatil = {
 }
 
 const camera_esporteaovivo1 = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_esporteaovivo' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_esporteaovivo' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_video: "SELECT v.*, c.nome_categoria FROM video v, produto_categoria c WHERE v.sit = 1 AND v.id_categoria = c.id AND v.id_categoria = '6' AND v.id_video_pai = '' ORDER BY v.id DESC LIMIT 10",
     select_popup: "SELECT * FROM popup WHERE popup = 1 OR popup = 2 ORDER BY id DESC LIMIT 1",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'camera_esporteaovivo' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -322,7 +322,7 @@ const camera_esporteaovivo1 = {
 }
 
 const camera_esporteaovivo = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_esporteaovivo' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_esporteaovivo' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_video: "SELECT v.*, c.nome_categoria FROM video v, produto_categoria c WHERE v.sit = 1 AND v.id_categoria = c.id AND v.id_categoria = '6' AND v.id_video_pai = '' ORDER BY v.id DESC LIMIT 10",
     select_popup: "SELECT * FROM popup WHERE popup = 1 OR popup = 2 ORDER BY id DESC LIMIT 1",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'camera_esporteaovivo' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -330,7 +330,7 @@ const camera_esporteaovivo = {
 }
 
 const camera_nereu_ramos_viaduto = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'cam_viaduto_avenida' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'cam_viaduto_avenida' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('cam_viaduto_avenida', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'cam_viaduto_avenida'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'cam_viaduto_avenida' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -338,7 +338,7 @@ const camera_nereu_ramos_viaduto = {
 }
 
 const camera_praca = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'cam_praca' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'cam_praca' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('cam_praca', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'cam_praca'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'cam_praca' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -346,7 +346,7 @@ const camera_praca = {
 }
 
 const camera_ponte_vale = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_ponte_vale' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_ponte_vale' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('camera_ponte_vale', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'camera_ponte_vale'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'camera_ponte_vale' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -354,7 +354,7 @@ const camera_ponte_vale = {
 }
 
 const camera_ponte_hercilio_deeke = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_ponte' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_ponte' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('camera_ponte', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'camera_ponte'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'camera_ponte' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -362,7 +362,7 @@ const camera_ponte_hercilio_deeke = {
 }
 
 const camera_noticia = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_esporteaovivo' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_esporteaovivo' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_video: "SELECT v.*, c.nome_categoria FROM video v, produto_categoria c WHERE v.sit = 1 AND v.id_categoria = c.id AND v.id_categoria = '6' AND v.id_video_pai = '' ORDER BY v.id DESC LIMIT 9",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE b.sit = 1 AND pagina = 'camera_esporteaovivo' and data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -370,7 +370,7 @@ const camera_noticia = {
 }
 
 const camera_nereu_ramos_8001 = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_nereu_outra' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_nereu_outra' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('cam_nereu_outra', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'cam_nereu_outra'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'cam_nereu_outra' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
@@ -378,14 +378,14 @@ const camera_nereu_ramos_8001 = {
 }
 
 const camera_nereu_ramos_345 = {
-    select_pub_topo:  "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_nereu_345' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
+    select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'camera_nereu_345' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     insert: "INSERT INTO visitas (conteudo, num, sit, data) VALUES ('cam_nereu_345', 1, 1, ?)",
     select_visitas: "SELECT SUM(num) visitas FROM visitas WHERE sit = 1 AND conteudo = 'cam_nereu_345'",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'cam_nereu_345' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
     select_pub_lateral: "SELECT * FROM publicidade_lateral WHERE sit = 1 AND pagina = 'camera_nereu_345' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC"
 }
 
-const script_busca_videos ={
+const script_busca_videos = {
     select: "SELECT v.*, c.nome_categoria FROM video v, produto_categoria c WHERE v.sit = 1 AND v.id_categoria = c.id AND v.id_video_pai = '' ORDER BY v.destaque, v.id DESC",
     select_natal: "SELECT v.*, c.nome_categoria FROM video v, produto_categoria c WHERE v.sit = 1 AND v.id_categoria = c.id AND v.id_video_pai = '' AND v.id_categoria = 46 ORDER BY rand()"
 }
@@ -472,7 +472,7 @@ const contato = {
 
 const contato1 = {
     select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
-    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",  
+    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_pub_lateral: "SELECT * FROM publicidade_lateral WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC"
 }
 
@@ -482,7 +482,7 @@ const enquete_all = {
     insert: "INSERT INTO enquete_voto (id_resposta, ip, data_cadastro, sit) VALUES (?, ?, ?, ?)",
     select_all_votos: "SELECT DISTINCT v.id_resposta, v.ip, v.sit FROM enquete_pergunta p, enquete_resposta r, enquete_voto v WHERE p.sit = 1 AND r.sit = 1 AND v.sit = 1 AND p.id = r.id_pergunta and r.id = v.id_resposta AND p.id = ?",
     select_resposta: "SELECT * FROM enquete_resposta WHERE sit = 1 AND r.id_pergunta = ?",
-    select_enquete:  "SELECT DISTINCT r.ds_resposta, v.id_resposta, COUNT(DISTINCT ip) total FROM enquete_pergunta p, enquete_resposta r, enquete_voto v WHERE p.sit = 1 AND r.sit = 1 AND v.sit = 1 AND p.id = r.id_pergunta AND r.id = v.id_resposta AND p.id = ? GROUP BY v.id_resposta",
+    select_enquete: "SELECT DISTINCT r.ds_resposta, v.id_resposta, COUNT(DISTINCT ip) total FROM enquete_pergunta p, enquete_resposta r, enquete_voto v WHERE p.sit = 1 AND r.sit = 1 AND v.sit = 1 AND p.id = r.id_pergunta AND r.id = v.id_resposta AND p.id = ? GROUP BY v.id_resposta",
     select_pesquisa: "SELECT * FROM enquete_voto WHERE ip = ? AND data_cadastro LIKE '%?%'",
     select_enquete_pergunta_resposta: "SELECT * FROM enquete_pergunta p, enquete_resposta r WHERE p.sit = 1 AND r.sit = 1 AND p.id = r.id_pergunta AND r.id_pergunta = ?"
 }
@@ -491,7 +491,7 @@ const enquete_all1 = {
     select_pergunta: "SELECT * FROM enquete_pergunta p, enquete_resposta r WHERE p.sit = 1 r.sit = 1 ORDER BY p.id DESC LIMIT 1",
     select_all_votos: "SELECT DISTINCT v.id_resposta, v.ip, v.sit FROM enquete_pergunta p, enquete_resposta r, enquete_voto v WHERE p.sit = 1 AND r.sit = 1 AND v.sit = 1 AND p.id = r.id_pergunta and r.id = v.id_resposta AND p.id = ?",
     select_resposta: "SELECT * FROM enquete_resposta WHERE sit = 1 AND r.id_pergunta = ?",
-    select_enquete:  "SELECT r.ds_resposta, v.id_resposta, COUNT(*) total FROM enquete_pergunta p, enquete_resposta r, enquete_voto v WHERE p.sit = 1 AND r.sit = 1 AND v.sit = 1 AND p.id = r.id_pergunta AND r.id = v.id_resposta AND p.id = ? GROUP BY v.id_resposta",
+    select_enquete: "SELECT r.ds_resposta, v.id_resposta, COUNT(*) total FROM enquete_pergunta p, enquete_resposta r, enquete_voto v WHERE p.sit = 1 AND r.sit = 1 AND v.sit = 1 AND p.id = r.id_pergunta AND r.id = v.id_resposta AND p.id = ? GROUP BY v.id_resposta",
     select_enquete_pergunta_resposta: "SELECT * FROM enquete_pergunta p, enquete_resposta r WHERE p.sit = 1 AND r.sit = 1 AND p.id = r.id_pergunta AND r.id_pergunta = ?"
 }
 
@@ -504,14 +504,14 @@ const eventos = {
 
 const eventos1 = {
     select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
-    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",  
+    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_popup1: "SELECT * FROM popup WHERE popup = 3 OR popup = 4 ORDER BY id DESC LIMIT 1",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
     select_pub_lateral: "SELECT * FROM publicidade_lateral WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC"
 }
 
 const index = {
-    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",  
+    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_informativo: "SELECT DISTINCT i.nome, i.id, i.data, i.link FROM informativo_detalhe d, informativo i WHERE d.sit = 1 AND i.sit = 1 AND i.id = d.cd_informativo ORDER BY i.destaque ASC, i.id DESC LIMIT 10",
     select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_pub_popup: "SELECT * FROM publicidade_popup WHERE sit = 1 AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
@@ -524,7 +524,7 @@ const index = {
 }
 
 const index_backup = {
-    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",  
+    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_informativo: "SELECT DISTINCT i.nome, i.id, i.data, i.link FROM informativo_detalhe d, informativo i WHERE d.sit = 1 AND i.sit = 1 AND i.id = d.cd_informativo ORDER BY i.destaque ASC, i.id DESC LIMIT 10",
     select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_pub_popup: "SELECT * FROM publicidade_popup WHERE sit = 1 AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
@@ -535,7 +535,7 @@ const index_backup = {
 }
 
 const index_manifestacao = {
-    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",  
+    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_informativo: "SELECT DISTINCT i.nome, i.id, i.data, i.link FROM informativo_detalhe d, informativo i WHERE d.sit = 1 AND i.sit = 1 AND i.id = d.cd_informativo ORDER BY i.destaque ASC, i.id DESC LIMIT 10",
     select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_pub_popup: "SELECT * FROM publicidade_popup WHERE sit = 1 AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
@@ -550,7 +550,7 @@ const index_mobile = {
 }
 
 const index_natal = {
-    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",  
+    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_informativo: "SELECT DISTINCT i.nome, i.id, i.data, i.link FROM informativo_detalhe d, informativo i WHERE d.sit = 1 AND i.sit = 1 AND i.id = d.cd_informativo ORDER BY i.destaque ASC, i.id DESC LIMIT 10",
     select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_pub_popup: "SELECT * FROM publicidade_popup WHERE sit = 1 AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
@@ -561,7 +561,7 @@ const index_natal = {
 }
 
 const index_natal2014 = {
-    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",  
+    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_informativo: "SELECT DISTINCT i.nome, i.id, i.data, i.link FROM informativo_detalhe d, informativo i WHERE d.sit = 1 AND i.sit = 1 AND i.id = d.cd_informativo ORDER BY i.destaque ASC, i.id DESC LIMIT 10",
     select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_pub_popup: "SELECT * FROM publicidade_popup WHERE sit = 1 AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
@@ -572,7 +572,7 @@ const index_natal2014 = {
 }
 
 const index_pascoa1 = {
-    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",  
+    select_popup: "SELECT * FROM popup ORDER BY id DESC LIMIT 1",
     select_informativo: "SELECT DISTINCT i.nome, i.id, i.data, i.link FROM informativo_detalhe d, informativo i WHERE d.sit = 1 AND i.sit = 1 AND i.id = d.cd_informativo ORDER BY i.destaque ASC, i.id DESC LIMIT 10",
     select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_pub_popup: "SELECT * FROM publicidade_popup WHERE sit = 1 AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
@@ -607,11 +607,11 @@ const noticias = {
 }
 
 const noticias_dethalhe = {
-    select_noticia:  "SELECT DISTINCT i.nome, i.id, i.data, e.nome_categoria, d.texto FROM informativo_detalhe d, informativo i, produto_categoria e where d.sit = 1 AND i.sit = 1 AND i.id_categoria = e.id AND i.id = d.cd_informativo ? ORDER BY i.id DESC LIMIT 1",
+    select_noticia: "SELECT DISTINCT i.nome, i.id, i.data, e.nome_categoria, d.texto FROM informativo_detalhe d, informativo i, produto_categoria e where d.sit = 1 AND i.sit = 1 AND i.id_categoria = e.id AND i.id = d.cd_informativo ? ORDER BY i.id DESC LIMIT 1",
     select_pub_topo: "SELECT * FROM publicidade_topo WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY id DESC LIMIT 1",
     select_pub_centro: "SELECT * FROM publicidade_centro WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC",
     select_comentario: "SELECT * FROM comentario WHERE sit = 1 AND pagina = 1 AND id_reportagem = ? ORDER BY id DESC",
-    select_pub_lateral: "SELECT * FROM publicidade_lateral WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC"    
+    select_pub_lateral: "SELECT * FROM publicidade_lateral WHERE sit = 1 AND pagina = 'index' AND data_fim >= ? AND data_inicio <= ? ORDER BY rand() DESC"
 }
 
 const noticias1 = {

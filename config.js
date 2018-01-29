@@ -7,9 +7,12 @@ const db = {
 
 const criptografia = {
     alg: "aes256",
-    cod: "utf8", 
+    cod: "utf8",
     secret: "tvgasparadmin",
     tipo: "hex"
 }
 
-module.exports = {db, criptografia};
+module.exports = {
+    db,
+    criptografia
+};
