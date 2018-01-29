@@ -18,7 +18,7 @@ const createUsuario = function (req, res) {
 }
 
 const updateToken = function (req, res, data) {
-    service(query.updateToken, req, res, [data.token, data.nome], "");
+    service(query.updateToken, req, res, [data.token, data.nome], function(){return;});
 }
 
 const getAllUsuarios = function (req, res) {
