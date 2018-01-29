@@ -9,7 +9,7 @@ const verifyToken = function (req, res, next) {
         jwt.verify(token, config.criptografia.secret, function (error, decoded) {
             if (error)
                 return res.json({
-                    sucess: false,
+                    success: false,
                     message: "Falha ao autenticar o token."
                 });
             else {
@@ -19,7 +19,7 @@ const verifyToken = function (req, res, next) {
         });
     } else
         return res.status(403).send({
-            sucess: false,
+            success: false,
             message: "Requisição sem token."
         });
 }
