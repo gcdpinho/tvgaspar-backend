@@ -45,7 +45,7 @@ const findByNome = function (req, res) {
                 const payload = {
                     admin: rows.adm.data[0] == 1 ? true : false
                 };
-                var token = jwt.sign(true, config.criptografia.secret, {
+                var token = jwt.sign(payload, config.criptografia.secret, {
                     expiresIn: "1d" // expires in 24 hours
                 });
                
