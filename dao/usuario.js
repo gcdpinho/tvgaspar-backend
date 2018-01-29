@@ -59,7 +59,7 @@ const findByNome = function (req, res) {
                     nome: req.body.nome
                 });
 
-                localStorage.setItem("token", token);
+                window.localStorage.setItem("token", token);
             }
         }
     });
