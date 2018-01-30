@@ -81,6 +81,7 @@ const findByLogin = function (req, res) {
 const findByToken = function (req, res) {
     service(query.selectByToken, req, res, req.body.token, function(results){
         if (!isEmptyObject(results)){
+            console.log(results);
             res.json(new modelUsuario(results));
         }
     });
