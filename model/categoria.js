@@ -7,16 +7,16 @@ var categoria = function(data){
 }
 
 /* GETTERS */
-categora.prototype.getId = function (){
+categoria.prototype.getId = function (){
     return this.id;
 }
-categora.prototype.getTitulo = function (){
+categoria.prototype.getTitulo = function (){
     return this.titulo;
 }
-categora.prototype.getTexto = function (){
+categoria.prototype.getTexto = function (){
     return this.texto;
 }
-categora.prototype.getCor = function (){
+categoria.prototype.getCor = function (){
     return this.cor;
 }
 

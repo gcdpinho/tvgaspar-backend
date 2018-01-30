@@ -4,18 +4,18 @@ var tag = function (data){
     this.titulo = data.titulo;
 }
 /* GETTERS */
-comentario.prototype.getId = function (){
+tag.prototype.getId = function (){
     return this.id;
 }
-comentario.prototype.getTitulo = function (){
+tag.prototype.getTitulo = function (){
     return this.titulo;
 }
 
 /* SETTERS */
-comentario.prototype.setId = function (id){
+tag.prototype.setId = function (id){
     this.id = id;
 }
-comentario.prototype.setTitulo = function (titulo){
+tag.prototype.setTitulo = function (titulo){
     this.titulo = titulo;
 }
 

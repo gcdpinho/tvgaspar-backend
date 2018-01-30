@@ -4,7 +4,7 @@ CREATE TABLE usuario (
     login varchar(255) NOT NULL UNIQUE,
     senha varchar(255) NOT NULL,
     email varchar(255) UNIQUE,
-    isAdm BIT DEFAULT 0,
+    isAdm BOOLEAN DEFAULT 0,
     token varchar(255)
     PRIMARY KEY (id)
 );
@@ -22,7 +22,7 @@ CREATE TABLE publicidade (
     tipo varchar(50) NOT NULL,
     texto TEXT,
     link varchar (255),
-    flgAtivo BIT DEFAULT 0, 
+    flgAtivo BOOLEAN DEFAULT 0, 
     idImagem int NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (idImagem) REFERENCES imagem (id)
@@ -67,7 +67,7 @@ CREATE TABLE noticia (
     texto MEDIUMTEXT NOT NULL,
     autor varchar(255),
     dtCadastro DATE NOT NULL,
-    flgAtivo BIT DEFAULT 0,
+    flgAtivo BOOLEAN DEFAULT 0,
     PRIMARY KEY (id)
 );
 

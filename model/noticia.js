@@ -10,48 +10,48 @@ var noticia = function(data){
 }
 
 /* GETTERS */
-categora.prototype.getId = function (){
+noticia.prototype.getId = function (){
     return this.id;
 }
-categora.prototype.getTitulo = function (){
-    return this.machete;
+noticia.prototype.getManchete = function (){
+    return this.manchete;
 }
-categora.prototype.getSubManchete = function (){
+noticia.prototype.getSubManchete = function (){
     return this.subManchete;
 }
-categora.prototype.getTexto = function (){
+noticia.prototype.getTexto = function (){
     return this.texto;
 }
-categora.prototype.getAutor = function (){
+noticia.prototype.getAutor = function (){
     return this.autor;
 }
-categora.prototype.getDtCadastro = function (){
+noticia.prototype.getDtCadastro = function (){
     return this.dtCadastro;
 }
-categora.prototype.getFlgAtivo = function (){
+noticia.prototype.getFlgAtivo = function (){
     return this.flgAtivo;
 }
 
 /* SETTERS */
-categoria.prototype.setId = function (id){
+noticia.prototype.setId = function (id){
     this.id = id;
 }
-categoria.prototype.setTitulo = function (machete){
-    this.machete = machete;
+noticia.prototype.setManchete = function (manchete){
+    this.manchete = manchete;
 }
-categoria.prototype.setSubManchete = function (subManchete){
+noticia.prototype.setSubManchete = function (subManchete){
     this.subManchete = subManchete;
 }
-categoria.prototype.setTexto = function (texto){
+noticia.prototype.setTexto = function (texto){
     this.texto = texto;
 }
-categoria.prototype.setAutor = function (autor){
+noticia.prototype.setAutor = function (autor){
     this.autor = autor;
 }
-categoria.prototype.setDtCadastro = function (dtCadastro){
+noticia.prototype.setDtCadastro = function (dtCadastro){
     this.dtCadastro = dtCadastro;
 }
-categoria.prototype.setFlgAtivo = function (flgAtivo){
+noticia.prototype.setFlgAtivo = function (flgAtivo){
     this.flgAtivo = flgAtivo;
 }
 

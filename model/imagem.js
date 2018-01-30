@@ -6,24 +6,24 @@ var imagem = function (data){
 }
 
 /* GETTERS */
-comentario.prototype.getId = function (){
+imagem.prototype.getId = function (){
     return this.id;
 }
-comentario.prototype.getTitulo = function (){
+imagem.prototype.getTitulo = function (){
     return this.titulo;
 }
-comentario.prototype.getLink = function (){
+imagem.prototype.getLink = function (){
     return this.link;
 }
 
 /* SETTERS */
-comentario.prototype.setId = function (id){
+imagem.prototype.setId = function (id){
     this.id = id;
 }
-comentario.prototype.setTitulo = function (titulo){
+imagem.prototype.setTitulo = function (titulo){
     this.titulo = titulo;
 }
-comentario.prototype.setLink = function (link){
+imagem.prototype.setLink = function (link){
     this.link = link;
 }
 

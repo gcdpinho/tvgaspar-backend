@@ -3,6 +3,7 @@ const config = require('./../config.js');
 const crypto = require("crypto");
 const jwt = require('jsonwebtoken');
 const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
+const modelUsuario =  require('./../model/usuario.js');
 
 const query = {
     insert: "INSERT INTO usuario (nome, login, senha, email, isAdm) VALUES (?, ?, ?, ?)",
@@ -13,9 +14,10 @@ const query = {
 }
 
 const createUsuario = function (req, res) {
-    cipher.update(req.body.senha);
-    req.body.senha = cipher.final(config.criptografia.tipo);
-    service(query.insert, req, res, [req.body.nome, req.body.login, req.body.senha, req.body.email, req.body.isAdm], "");
+    const usuario = new modelUsuario(req.body);
+    cipher.update(usuario.getSenha());
+    usuario.setSenha(cipher.final(config.criptografia.tipo));
+    service(query.insert, req, res, [usuario.getNome(), usuario.getLogin(), usuario.getSenha(), usuario.getEmail(), usuario.getIsAdm()], "");
 }
 
 const updateToken = function (req, res, data) {
@@ -25,7 +27,15 @@ const updateToken = function (req, res, data) {
 }
 
 const getAllUsuarios = function (req, res) {
-    service(query.selectAll, req, res, "", "");
+    service(query.selectAll, req, res, "", function(results){
+        if (!isEmptyObject(results)){
+            var arrUsuario = [];
+            results.forEach(function(element, index){
+                arrUsuario.push(new modelUsuario(element));
+            });
+            res.json(arrUsuario);
+        }
+    });
 }
 
 const findByLogin = function (req, res) {
@@ -69,7 +79,11 @@ const findByLogin = function (req, res) {
 }
 
 const findByToken = function (req, res) {
-    service(query.selectByToken, req, res, req.body.token, "");
+    service(query.selectByToken, req, res, req.body.token, function(results){
+        if (!isEmptyObject(results)){
+            res.json(new modelUsuario(results));
+        }
+    });
 }
 
 function isEmptyObject(obj) {
