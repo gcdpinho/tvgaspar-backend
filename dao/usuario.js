@@ -3,7 +3,7 @@ const config = require('./../config.js');
 const crypto = require("crypto");
 const jwt = require('jsonwebtoken');
 const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
-const modelUsuario =  require('./../model/usuario.js');
+const modelUsuario = require('./../model/usuario.js');
 
 const query = {
     insert: "INSERT INTO usuario (nome, login, senha, email, isAdm) VALUES (?, ?, ?, ?)",
@@ -27,20 +27,12 @@ const updateToken = function (req, res, data) {
 }
 
 const getAllUsuarios = function (req, res) {
-    service(query.selectAll, req, res, "", function(results){
-        if (!isEmptyObject(results)){
-            var arrUsuario = [];
-            results.forEach(function(element, index){
-                arrUsuario.push(new modelUsuario(element));
-            });
-            res.json(arrUsuario);
-        }
-    });
+    service(query.selectAll, req, res, "", "default");
 }
 
 const findByLogin = function (req, res) {
     service(query.selectByLogin, req, res, req.body.login, function (results) {
-        
+
         if (isEmptyObject(results))
             res.json({
                 success: false,
@@ -79,15 +71,10 @@ const findByLogin = function (req, res) {
 }
 
 const findByToken = function (req, res) {
-    service(query.selectByToken, req, res, req.body.token, function(results){
-        if (!isEmptyObject(results)){
-            console.log(results);
-            res.json(new modelUsuario(results));
-        }
-    });
+    service(query.selectByToken, req, res, req.body.token, "default");
 }
 
-function isEmptyObject(obj) {
+var isEmptyObject = function (obj) {
     var name;
     for (name in obj) {
         if (obj.hasOwnProperty(name)) {
@@ -95,6 +82,17 @@ function isEmptyObject(obj) {
         }
     }
     return true;
+}
+
+var callbackDefault = function (res, results) {
+    var arrUsuario = [];
+    if (!isEmptyObject(results)) {
+        results.forEach(function (element, index) {
+            arrUsuario.push(new modelUsuario(element));
+        });
+    }
+
+    res.json(arrUsuario);
 }
 
 const service = function (query, req, res, data, callback) {
@@ -106,8 +104,10 @@ const service = function (query, req, res, data, callback) {
         else {
             if (callback == "")
                 res.json(results);
+            else if (callback = "default")
+                callbackDefault(res, results);
             else
-                callback(results);
+                callback(results)
         }
         connection.end();
     });
