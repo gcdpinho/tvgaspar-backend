@@ -8,7 +8,7 @@ const query = {
     insert: "INSERT INTO usuario (nome, login, senha, email, adm) VALUES (?, ?, ?, ?)",
     updateToken: "UPDATE usuario SET token = ? WHERE login = ?",
     selectAll: "SELECT nome, login, email, adm FROM usuario",
-    selectByLogin: "SELECT * FROM usuario WHERE login = ?", //TO DO: retirar senha do retorno
+    selectByLogin: "SELECT * FROM usuario WHERE login = ?",
     selectByToken: "SELECT nome, email, adm FROM usuario WHERE token = ?"
 }
 
@@ -55,7 +55,7 @@ const findByLogin = function (req, res) {
 
                 updateToken(req, res, {
                     token: token,
-                    nome: req.body.login
+                    login: req.body.login
                 });
 
                 res.json({
