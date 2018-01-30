@@ -5,21 +5,21 @@ const jwt = require('jsonwebtoken');
 const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
 
 const query = {
-    insert: "INSERT INTO usuario (nome, senha, adm) VALUES (?, ?, ?)",
-    updateToken: "UPDATE usuario SET token = ? WHERE nome = ?",
-    selectAll: "SELECT nome, adm FROM usuario",
-    selectByNome: "SELECT * FROM usuario WHERE nome = ?", //TO DO: retirar senha do retorno
-    selectByToken: "SELECT nome, adm FROM usuario WHERE token = ?"
+    insert: "INSERT INTO usuario (nome, login, senha, email, adm) VALUES (?, ?, ?, ?)",
+    updateToken: "UPDATE usuario SET token = ? WHERE login = ?",
+    selectAll: "SELECT nome, login, email, adm FROM usuario",
+    selectByLogin: "SELECT * FROM usuario WHERE login = ?", //TO DO: retirar senha do retorno
+    selectByToken: "SELECT nome, email, adm FROM usuario WHERE token = ?"
 }
 
 const createUsuario = function (req, res) {
     cipher.update(req.body.senha);
     req.body.senha = cipher.final(config.criptografia.tipo);
-    service(query.insert, req, res, [req.body.nome, req.body.senha, req.body.adm], "");
+    service(query.insert, req, res, [req.body.nome, req.body.login, req.body.senha, req.body.email, req.body.adm], "");
 }
 
 const updateToken = function (req, res, data) {
-    service(query.updateToken, req, res, [data.token, data.nome], function () {
+    service(query.updateToken, req, res, [data.token, data.login], function () {
         return;
     });
 }
@@ -28,8 +28,8 @@ const getAllUsuarios = function (req, res) {
     service(query.selectAll, req, res, "", "");
 }
 
-const findByNome = function (req, res) {
-    service(query.selectByNome, req, res, req.body.nome, function (results) {
+const findByLogin = function (req, res) {
+    service(query.selectByLogin, req, res, req.body.login, function (results) {
         
         if (isEmptyObject(results))
             res.json({
@@ -55,7 +55,7 @@ const findByNome = function (req, res) {
 
                 updateToken(req, res, {
                     token: token,
-                    nome: req.body.nome
+                    nome: req.body.login
                 });
 
                 res.json({
@@ -101,6 +101,6 @@ const service = function (query, req, res, data, callback) {
 module.exports = {
     createUsuario,
     getAllUsuarios,
-    findByNome,
+    findByLogin,
     findByToken
 };

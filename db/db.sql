@@ -1,7 +1,9 @@
 CREATE TABLE usuario (
     id int NOT NULL AUTO_INCREMENT,
-    nome varchar(255) NOT NULL UNIQUE,
+    nome varchar(255) NOT NULL,
+    login varchar(255) NOT NULL UNIQUE,
     senha varchar(255) NOT NULL,
+    email varchar(255) UNIQUE,
     adm BIT DEFAULT 0,
     token varchar(255)
     PRIMARY KEY (id)
