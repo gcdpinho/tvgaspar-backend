@@ -102,12 +102,17 @@ const service = function (query, req, res, data, callback) {
         if (error)
             res.json(error);
         else {
-            if (callback == "")
-                res.json(results);
-            else if (callback = "default")
-                callbackDefault(res, results);
-            else
-                callback(results)
+            switch (callback) {
+                case "":
+                    res.json(results);
+                    break;
+                case "default":
+                    callbackDefault(res, results);
+                    break;
+                default:
+                    callback(results)
+                    break;
+            }
         }
         connection.end();
     });
