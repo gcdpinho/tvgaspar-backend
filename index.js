@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 const usuario = require('./routes/usuario.js')(router);
+const tag = require('./routes/tag.js')(router);
 app.use('/', router);
 
 app.listen(process.env.PORT || 3000);
