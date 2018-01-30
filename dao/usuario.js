@@ -57,7 +57,7 @@ const findByLogin = function (req, res) {
                 });
             else {
                 const payload = {
-                    admin: rows.isAdm.data[0] == 1 ? true : false
+                    admin: rows.isAdm == 1 ? true : false
                 };
                 var token = jwt.sign(payload, config.criptografia.secret, {
                     expiresIn: "1d" // expires in 24 hours
