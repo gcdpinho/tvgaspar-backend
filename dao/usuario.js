@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
 const modelUsuario = require('./../model/usuario.js');
 
+/* Queries */
 const query = {
     insert: "INSERT INTO usuario (nome, login, senha, email, isAdm) VALUES (?, ?, ?, ?)",
     updateToken: "UPDATE usuario SET token = ? WHERE login = ?",
@@ -12,7 +13,8 @@ const query = {
     selectByLogin: "SELECT * FROM usuario WHERE login = ?",
     selectByToken: "SELECT nome, email, isAdm FROM usuario WHERE token = ?"
 }
-
+/* end-Queries */
+/* Services */
 const createUsuario = function (req, res) {
     const usuario = new modelUsuario(req.body);
     cipher.update(usuario.getSenha());
@@ -52,7 +54,7 @@ const findByLogin = function (req, res) {
                     admin: rows.isAdm == 1 ? true : false
                 };
                 var token = jwt.sign(payload, config.criptografia.secret, {
-                    expiresIn: "1d" // expires in 24 hours
+                    expiresIn: "1d"
                 });
 
                 updateToken(req, res, {
@@ -73,17 +75,8 @@ const findByLogin = function (req, res) {
 const findByToken = function (req, res) {
     service(query.selectByToken, req, res, req.body.token, "default");
 }
-
-var isEmptyObject = function (obj) {
-    var name;
-    for (name in obj) {
-        if (obj.hasOwnProperty(name)) {
-            return false;
-        }
-    }
-    return true;
-}
-
+/* end-Services */
+/* Default functions  */
 var callbackDefault = function (res, results) {
     var arrUsuario = [];
     if (!isEmptyObject(results)) {
@@ -117,6 +110,18 @@ const service = function (query, req, res, data, callback) {
         connection.end();
     });
 }
+/* end-Default functions*/
+/* Help Functions  */
+var isEmptyObject = function (obj) {
+    var name;
+    for (name in obj) {
+        if (obj.hasOwnProperty(name)) {
+            return false;
+        }
+    }
+    return true;
+}
+/* end-Help Functions  */
 
 module.exports = {
     createUsuario,
