@@ -5,17 +5,17 @@ const jwt = require('jsonwebtoken');
 const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
 
 const query = {
-    insert: "INSERT INTO usuario (nome, login, senha, email, adm) VALUES (?, ?, ?, ?)",
+    insert: "INSERT INTO usuario (nome, login, senha, email, isAdm) VALUES (?, ?, ?, ?)",
     updateToken: "UPDATE usuario SET token = ? WHERE login = ?",
-    selectAll: "SELECT nome, login, email, adm FROM usuario",
+    selectAll: "SELECT nome, login, email, isAdm FROM usuario",
     selectByLogin: "SELECT * FROM usuario WHERE login = ?",
-    selectByToken: "SELECT nome, email, adm FROM usuario WHERE token = ?"
+    selectByToken: "SELECT nome, email, isAdm FROM usuario WHERE token = ?"
 }
 
 const createUsuario = function (req, res) {
     cipher.update(req.body.senha);
     req.body.senha = cipher.final(config.criptografia.tipo);
-    service(query.insert, req, res, [req.body.nome, req.body.login, req.body.senha, req.body.email, req.body.adm], "");
+    service(query.insert, req, res, [req.body.nome, req.body.login, req.body.senha, req.body.email, req.body.isAdm], "");
 }
 
 const updateToken = function (req, res, data) {
@@ -47,7 +47,7 @@ const findByLogin = function (req, res) {
                 });
             else {
                 const payload = {
-                    admin: rows.adm.data[0] == 1 ? true : false
+                    admin: rows.isAdm.data[0] == 1 ? true : false
                 };
                 var token = jwt.sign(payload, config.criptografia.secret, {
                     expiresIn: "1d" // expires in 24 hours
