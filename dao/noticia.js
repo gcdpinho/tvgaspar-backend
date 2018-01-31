@@ -10,15 +10,15 @@ const query = {
 /* end-Queries */
 /* Services */
 const createNoticia = function (req, res){
-    functions.service(query.insert, req, res, [req.body.manchete, req.body.submanchete, req.body.texto, req.body.autor, req.body.dtCadastro, req.body.flgAtivo], "");
+    functions.service(query.insert, req, res, [req.body.manchete, req.body.submanchete, req.body.texto, req.body.autor, req.body.dtCadastro, req.body.flgAtivo], "", modelNoticia);
 }
 
 const getAllNoticias = function (req, res){
-    functions.service(query.selectAll, req, res, "", "default");
+    functions.service(query.selectAll, req, res, "", "default", modelNoticia);
 }
 
 const updateNoticia = function (req, res){
-    functions.service(query.update, req, res, [req.body.manchete, req.body.submanchete, req.body.texto, req.body.autor, req.body.dtCadastro, req.body.flgAtivo, req.body.id], "");
+    functions.service(query.update, req, res, [req.body.manchete, req.body.submanchete, req.body.texto, req.body.autor, req.body.dtCadastro, req.body.flgAtivo, req.body.id], "", modelNoticia);
 }
 /* end-Services */
 

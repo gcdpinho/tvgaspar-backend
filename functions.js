@@ -23,7 +23,7 @@ var callbackDefault = function (res, results, model) {
     res.json(arrNoticia);
 }
 
-const service = function (query, req, res, data, callback) {
+const service = function (query, req, res, data, callback, model) {
     const connection = mysql.createConnection(config.db);
 
     connection.query(query, data, function (error, results, fields) {
@@ -35,7 +35,7 @@ const service = function (query, req, res, data, callback) {
                     res.json(results);
                     break;
                 case "default":
-                    callbackDefault(res, results);
+                    callbackDefault(res, results, model);
                     break;
                 default:
                     callback(results)
