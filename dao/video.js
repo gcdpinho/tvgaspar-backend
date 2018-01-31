@@ -1,5 +1,5 @@
 const functions = require('./../functions.js');
-const modelVideo = require('./../model/Video.js');
+const modelVideo = require('./../model/video.js');
 
 /* Queries */
 const query = {
