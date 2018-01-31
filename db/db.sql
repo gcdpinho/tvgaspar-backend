@@ -48,7 +48,7 @@ CREATE TABLE categoria (
 
 CREATE TABLE tag (
     id int NOT NULL AUTO_INCREMENT,
-    titulo varchar(255) NOT NULL,
+    titulo varchar(255) NOT NULL UNIQUE,
     PRIMARY KEY (id)
 );
 
