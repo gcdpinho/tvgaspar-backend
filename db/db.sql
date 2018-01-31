@@ -56,7 +56,7 @@ CREATE TABLE video (
     id int NOT NULL AUTO_INCREMENT,
     titulo varchar(255),
     texto TEXT,
-    link varchar(255),
+    link varchar(255) NOT NULL,
     PRIMARY KEY (id)
 );
 
