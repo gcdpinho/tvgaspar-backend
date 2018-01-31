@@ -1,6 +1,4 @@
-const mysql = require('mysql');
-const config = require('./../config.js');
-const jwt = require('jsonwebtoken');
+const functions = require('./../functions.js');
 const modelTag = require('./../model/tag.js');
 
 /* Queries */
@@ -11,58 +9,21 @@ const query = {
 }
 /* end-Queries */
 /* Services */
-const createtag = function (req, res){
-    service(query.insert, req, res, [req.body.titulo], "");
+const createTag = function (req, res){
+    functions.service(query.insert, req, res, [req.body.titulo], "");
 }
 
 const getAlltags = function (req, res){
-    service(query.selectAll, req, res, "", "default");
+    functions.service(query.selectAll, req, res, "", "default");
 }
 
 const updateTag = function (req, res){
-    service(query.update, req, res, [req.body.titulo, req.body.id], "");
+    functions.service(query.update, req, res, [req.body.titulo, req.body.id], "");
 }
 /* end-Services */
-/* Default functions  */
-var callbackDefault = function (res, results) {
-    var arrTag = [];
-    if (!isEmptyObject(results)) {
-        results.forEach(function (element, index) {
-            arrTag.push(new modelTag(element));
-        });
-    }
-
-    res.json(arrTag);
-}
-
-const service = function (query, req, res, data, callback) {
-    const connection = mysql.createConnection(config.db);
-
-    connection.query(query, data, function (error, results, fields) {
-        if (error)
-            res.json(error);
-        else {
-            switch (callback) {
-                case "":
-                    res.json(results);
-                    break;
-                case "default":
-                    callbackDefault(res, results);
-                    break;
-                default:
-                    callback(results)
-                    break;
-            }
-        }
-        connection.end();
-    });
-}
-/* end-Default functions*/
-/* Help Functions  */
-/* end-Help Functions  */
 
 module.exports = {
-    createtag,
+    createTag,
     getAlltags,
     updateTag
 };

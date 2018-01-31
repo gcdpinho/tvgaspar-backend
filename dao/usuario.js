@@ -1,9 +1,9 @@
-const mysql = require('mysql');
 const config = require('./../config.js');
 const crypto = require("crypto");
 const jwt = require('jsonwebtoken');
 const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
 const modelUsuario = require('./../model/usuario.js');
+const functions = require('./../functions.js');
 
 /* Queries */
 const query = {
@@ -19,21 +19,21 @@ const createUsuario = function (req, res) {
     const usuario = new modelUsuario(req.body);
     cipher.update(usuario.getSenha());
     usuario.setSenha(cipher.final(config.criptografia.tipo));
-    service(query.insert, req, res, [usuario.getNome(), usuario.getLogin(), usuario.getSenha(), usuario.getEmail(), usuario.getIsAdm()], "");
+    functions.service(query.insert, req, res, [usuario.getNome(), usuario.getLogin(), usuario.getSenha(), usuario.getEmail(), usuario.getIsAdm()], "");
 }
 
 const updateToken = function (req, res, data) {
-    service(query.updateToken, req, res, [data.token, data.login], function () {
+    functions.service(query.updateToken, req, res, [data.token, data.login], function () {
         return;
     });
 }
 
 const getAllUsuarios = function (req, res) {
-    service(query.selectAll, req, res, "", "default");
+    functions.service(query.selectAll, req, res, "", "default");
 }
 
 const findByLogin = function (req, res) {
-    service(query.selectByLogin, req, res, req.body.login, function (results) {
+    functions.service(query.selectByLogin, req, res, req.body.login, function (results) {
 
         if (isEmptyObject(results))
             res.json({
@@ -73,55 +73,9 @@ const findByLogin = function (req, res) {
 }
 
 const findByToken = function (req, res) {
-    service(query.selectByToken, req, res, req.body.token, "default");
+    functions.service(query.selectByToken, req, res, req.body.token, "default");
 }
 /* end-Services */
-/* Default functions  */
-var callbackDefault = function (res, results) {
-    var arrUsuario = [];
-    if (!isEmptyObject(results)) {
-        results.forEach(function (element, index) {
-            arrUsuario.push(new modelUsuario(element));
-        });
-    }
-
-    res.json(arrUsuario);
-}
-
-const service = function (query, req, res, data, callback) {
-    const connection = mysql.createConnection(config.db);
-
-    connection.query(query, data, function (error, results, fields) {
-        if (error)
-            res.json(error);
-        else {
-            switch (callback) {
-                case "":
-                    res.json(results);
-                    break;
-                case "default":
-                    callbackDefault(res, results);
-                    break;
-                default:
-                    callback(results)
-                    break;
-            }
-        }
-        connection.end();
-    });
-}
-/* end-Default functions*/
-/* Help Functions  */
-var isEmptyObject = function (obj) {
-    var name;
-    for (name in obj) {
-        if (obj.hasOwnProperty(name)) {
-            return false;
-        }
-    }
-    return true;
-}
-/* end-Help Functions  */
 
 module.exports = {
     createUsuario,

@@ -1,5 +1,5 @@
 const usuario = require('./../dao/usuario.js');
-const verifyToken = require('./../app.js');
+const functions = require('./../functions.js');
 
 module.exports = function (router) {
 
@@ -7,7 +7,7 @@ module.exports = function (router) {
         usuario.findByLogin(req, res);
     });
 
-    router.use(verifyToken);
+    router.use(functions.verifyToken);
 
     router.post('/findByToken', (req, res) => {
         usuario.findByToken(req, res);

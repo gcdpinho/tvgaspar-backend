@@ -1,12 +1,12 @@
 const tag = require('./../dao/tag.js');
-const verifyToken = require('./../app.js');
+const functions = require('./../functions.js');
 
 module.exports = function (router) {
 
-    router.use(verifyToken);
+    router.use(functions.verifyToken);
 
     router.post('/createTag', (req, res) => {
-        tag.createtag(req, res);
+        tag.createTag(req, res);
     });
 
     router.post('/getAllTag', (req, res) => {
