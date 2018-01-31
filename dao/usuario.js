@@ -35,7 +35,7 @@ const getAllUsuarios = function (req, res) {
 const findByLogin = function (req, res) {
     functions.service(query.selectByLogin, req, res, req.body.login, function (results) {
 
-        if (isEmptyObject(results))
+        if (functions.isEmptyObject(results))
             res.json({
                 success: false,
                 message: "Falha na autenticação. Usuário não encontrado."
