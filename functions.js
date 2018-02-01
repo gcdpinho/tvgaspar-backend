@@ -29,8 +29,8 @@ const service = function (query, req, res, data, callback, model, multiples) {
     if (multiples) {
         console.log(data);
         data.forEach(function (element, index) {
-            console.log(element.values());
-            connection.query(query, element.values(), function (error, results, fields) {
+            console.log();
+            connection.query(query, JSON.parse(element).values(), function (error, results, fields) {
                 if (error)
                     res.json(error);
                 else {
