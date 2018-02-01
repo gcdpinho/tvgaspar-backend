@@ -35,19 +35,6 @@ const service = function (query, req, res, data, callback, model, multiples) {
             connection.query(query, dataAux, function (error, results, fields) {
                 if (error)
                     res.json(error);
-                else {
-                    switch (callback) {
-                        case "":
-                            res.json(results);
-                            break;
-                        case "default":
-                            callbackDefault(res, results, model);
-                            break;
-                        default:
-                            callback(results)
-                            break;
-                    }
-                }
             });
         });
         connection.end();
