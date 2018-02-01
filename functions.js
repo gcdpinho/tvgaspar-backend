@@ -27,7 +27,6 @@ const service = function (query, req, res, data, callback, model, multiples) {
     const connection = mysql.createConnection(config.db);
 
     if (multiples) {
-        console.log(data);
         data.forEach(function (element, index) {
             var dataAux = []
             for (var entry in element)
