@@ -27,7 +27,9 @@ const service = function (query, req, res, data, callback, model, multiples) {
     const connection = mysql.createConnection(config.db);
 
     if (multiples) {
+        console.log(data);
         data.forEach(function (element, index) {
+            console.log(element);
             connection.query(query, element, function (error, results, fields) {
                 if (error)
                     res.json(error);
