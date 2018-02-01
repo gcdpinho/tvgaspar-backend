@@ -68,7 +68,10 @@ CREATE TABLE noticia (
     autor varchar(255),
     dtCadastro DATE NOT NULL,
     flgAtivo BOOLEAN DEFAULT 0,
-    PRIMARY KEY (id)
+    aprovacao BOOLEAN NOT NULL,
+    idUsuario int NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idUsuario) REFERENCES usuario (id)
 );
 
 CREATE TABLE noticiaCategoria (

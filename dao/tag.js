@@ -13,7 +13,7 @@ const createTag = function (req, res){
     functions.service(query.insert, req, res, [req.body.titulo], "", modelTag);
 }
 
-const getAlltags = function (req, res){
+const getAllTags = function (req, res){
     functions.service(query.selectAll, req, res, "", "default", modelTag);
 }
 
