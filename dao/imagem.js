@@ -13,7 +13,7 @@ const createImagem = function (req, res){
     functions.service(query.insert, req, res, [req.body.titulo, req.body.link], "", modelImagem);
 }
 
-const getAllImagems = function (req, res){
+const getAllImagens = function (req, res){
     functions.service(query.selectAll, req, res, "", "default", modelImagem);
 }
 

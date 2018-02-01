@@ -9,8 +9,8 @@ module.exports = function (router) {
         tag.createTag(req, res);
     });
 
-    router.post('/getAllTag', (req, res) => {
-        tag.getAlltags(req, res);
+    router.post('/getAllTags', (req, res) => {
+        tag.getAllTags(req, res);
     });
 
     router.post('/updateTag', (req, res) => {

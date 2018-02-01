@@ -9,7 +9,7 @@ module.exports = function (router) {
         video.createVideo(req, res);
     });
 
-    router.post('/getAllVideo', (req, res) => {
+    router.post('/getAllVideos', (req, res) => {
         video.getAllVideos(req, res);
     });
 

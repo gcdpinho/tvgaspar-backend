@@ -9,7 +9,7 @@ module.exports = function (router) {
         categoria.createCategoria(req, res);
     });
 
-    router.post('/getAllCategoria', (req, res) => {
+    router.post('/getAllCategorias', (req, res) => {
         categoria.getAllCategorias(req, res);
     });
 

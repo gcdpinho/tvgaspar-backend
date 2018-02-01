@@ -9,8 +9,8 @@ module.exports = function (router) {
         imagem.createImagem(req, res);
     });
 
-    router.post('/getAllImagem', (req, res) => {
-        imagem.getAllImagems(req, res);
+    router.post('/getAllImagens', (req, res) => {
+        imagem.getAllImagens(req, res);
     });
 
     router.post('/updateImagem', (req, res) => {
