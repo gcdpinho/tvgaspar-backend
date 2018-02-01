@@ -37,6 +37,9 @@ const service = function (query, req, res, data, callback, model, multiples) {
                     res.json(error);
             });
         });
+        res.json({
+            success: true
+        });
         connection.end();
     }
     else
