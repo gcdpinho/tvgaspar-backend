@@ -95,6 +95,14 @@ CREATE TABLE noticiaTag (
     FOREIGN KEY (idTag) REFERENCES tag (id)
 );
 
+CREATE TABLE noticiaImagem (
+    idNoticia int NOT NULL,
+    idImagem int NOT NULL,
+    PRIMARY KEY (idNoticia, idImagem),
+    FOREIGN KEY (idNoticia) REFERENCES noticia (id),
+    FOREIGN KEY (idImagem) REFERENCES imagem (id)
+);
+
 CREATE TABLE imagemTag (
     idImagem int NOT NULL,
     idTag int NOT NULL,
