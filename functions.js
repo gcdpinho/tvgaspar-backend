@@ -23,27 +23,50 @@ var callbackDefault = function (res, results, model) {
     res.json(arrNoticia);
 }
 
-const service = function (query, req, res, data, callback, model) {
+const service = function (query, req, res, data, callback, model, multiples) {
     const connection = mysql.createConnection(config.db);
 
-    connection.query(query, data, function (error, results, fields) {
-        if (error)
-            res.json(error);
-        else {
-            switch (callback) {
-                case "":
-                    res.json(results);
-                    break;
-                case "default":
-                    callbackDefault(res, results, model);
-                    break;
-                default:
-                    callback(results)
-                    break;
-            }
-        }
+    if (multiples) {
+        data.forEach(function (element, index) {
+            connection.query(query, element, function (error, results, fields) {
+                if (error)
+                    res.json(error);
+                else {
+                    switch (callback) {
+                        case "":
+                            res.json(results);
+                            break;
+                        case "default":
+                            callbackDefault(res, results, model);
+                            break;
+                        default:
+                            callback(results)
+                            break;
+                    }
+                }
+            });
+        });
         connection.end();
-    });
+    }
+    else
+        connection.query(query, data, function (error, results, fields) {
+            if (error)
+                res.json(error);
+            else {
+                switch (callback) {
+                    case "":
+                        res.json(results);
+                        break;
+                    case "default":
+                        callbackDefault(res, results, model);
+                        break;
+                    default:
+                        callback(results)
+                        break;
+                }
+            }
+            connection.end();
+        });
 }
 
 var verifyToken = function (req, res, next) {
