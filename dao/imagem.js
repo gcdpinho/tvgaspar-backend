@@ -24,6 +24,6 @@ const updateImagem = function (req, res){
 
 module.exports = {
     createImagem,
-    getAllImagems,
+    getAllImagens,
     updateImagem
 };

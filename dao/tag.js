@@ -24,6 +24,6 @@ const updateTag = function (req, res){
 
 module.exports = {
     createTag,
-    getAlltags,
+    getAllTags,
     updateTag
 };
