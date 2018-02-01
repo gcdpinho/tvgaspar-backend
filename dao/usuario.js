@@ -11,7 +11,7 @@ const query = {
     updateToken: "UPDATE usuario SET token = ? WHERE login = ?",
     selectAll: "SELECT nome, login, email, isAdm FROM usuario",
     selectByLogin: "SELECT * FROM usuario WHERE login = ?",
-    selectByToken: "SELECT nome, email, isAdm FROM usuario WHERE token = ?"
+    selectByToken: "SELECT id, nome, email, isAdm FROM usuario WHERE token = ?"
 }
 /* end-Queries */
 /* Services */
