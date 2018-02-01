@@ -9,11 +9,11 @@ const query = {
 /* end-Queries */
 /* Services */
 const createImagemTag = function (req, res){
-    functions.service(query.insert, req, res, req.body.data, "", modelImagemTag);
+    functions.service(query.insert, req, res, req.body.data, "", modelImagemTag, true);
 }
 
 const getAllImagensTags = function (req, res){
-    functions.service(query.selectAll, req, res, "", "default", modelImagemTag);
+    functions.service(query.selectAll, req, res, "", "default", modelImagemTag, true);
 }
 
 /* end-Services */

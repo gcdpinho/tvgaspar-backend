@@ -10,15 +10,15 @@ const query = {
 /* end-Queries */
 /* Services */
 const createImagem = function (req, res){
-    functions.service(query.insert, req, res, [req.body.titulo, req.body.link], "", modelImagem);
+    functions.service(query.insert, req, res, [req.body.titulo, req.body.link], "", modelImagem, false);
 }
 
 const getAllImagens = function (req, res){
-    functions.service(query.selectAll, req, res, "", "default", modelImagem);
+    functions.service(query.selectAll, req, res, "", "default", modelImagem, false);
 }
 
 const updateImagem = function (req, res){
-    functions.service(query.update, req, res, [req.body.titulo, req.body.link, req.body.id], "", modelImagem);
+    functions.service(query.update, req, res, [req.body.titulo, req.body.link, req.body.id], "", modelImagem, false);
 }
 /* end-Services */
 

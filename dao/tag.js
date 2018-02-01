@@ -10,15 +10,15 @@ const query = {
 /* end-Queries */
 /* Services */
 const createTag = function (req, res){
-    functions.service(query.insert, req, res, [req.body.titulo], "", modelTag);
+    functions.service(query.insert, req, res, [req.body.titulo], "", modelTag, false);
 }
 
 const getAllTags = function (req, res){
-    functions.service(query.selectAll, req, res, "", "default", modelTag);
+    functions.service(query.selectAll, req, res, "", "default", modelTag, false);
 }
 
 const updateTag = function (req, res){
-    functions.service(query.update, req, res, [req.body.titulo, req.body.id], "", modelTag);
+    functions.service(query.update, req, res, [req.body.titulo, req.body.id], "", modelTag, false);
 }
 /* end-Services */
 

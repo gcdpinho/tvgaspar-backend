@@ -19,17 +19,17 @@ const createUsuario = function (req, res) {
     const usuario = new modelUsuario(req.body);
     cipher.update(usuario.getSenha());
     usuario.setSenha(cipher.final(config.criptografia.tipo));
-    functions.service(query.insert, req, res, [usuario.getNome(), usuario.getLogin(), usuario.getSenha(), usuario.getEmail(), usuario.getIsAdm()], "", modelUsuario);
+    functions.service(query.insert, req, res, [usuario.getNome(), usuario.getLogin(), usuario.getSenha(), usuario.getEmail(), usuario.getIsAdm()], "", modelUsuario, false);
 }
 
 const updateToken = function (req, res, data) {
     functions.service(query.updateToken, req, res, [data.token, data.login], function () {
         return;
-    }, modelUsuario);
+    }, modelUsuario, false);
 }
 
 const getAllUsuarios = function (req, res) {
-    functions.service(query.selectAll, req, res, "", "default", modelUsuario);
+    functions.service(query.selectAll, req, res, "", "default", modelUsuario, false);
 }
 
 const findByLogin = function (req, res) {
@@ -69,11 +69,11 @@ const findByLogin = function (req, res) {
                 });
             }
         }
-    }, modelUsuario);
+    }, modelUsuario, false);
 }
 
 const findByToken = function (req, res) {
-    functions.service(query.selectByToken, req, res, req.body.token, "default", modelUsuario);
+    functions.service(query.selectByToken, req, res, req.body.token, "default", modelUsuario, false);
 }
 /* end-Services */
 

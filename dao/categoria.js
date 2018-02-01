@@ -10,15 +10,15 @@ const query = {
 /* end-Queries */
 /* Services */
 const createCategoria = function (req, res){
-    functions.service(query.insert, req, res, [req.body.titulo, req.body.texto, req.body.cor], "", modelCategoria);
+    functions.service(query.insert, req, res, [req.body.titulo, req.body.texto, req.body.cor], "", modelCategoria, false);
 }
 
 const getAllCategorias = function (req, res){
-    functions.service(query.selectAll, req, res, "", "default", modelCategoria);
+    functions.service(query.selectAll, req, res, "", "default", modelCategoria, false);
 }
 
 const updateCategoria = function (req, res){
-    functions.service(query.update, req, res, [req.body.titulo, req.body.texto, req.body.cor, req.body.id], "", modelCategoria);
+    functions.service(query.update, req, res, [req.body.titulo, req.body.texto, req.body.cor, req.body.id], "", modelCategoria, false);
 }
 /* end-Services */
 

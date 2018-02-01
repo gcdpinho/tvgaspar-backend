@@ -10,15 +10,15 @@ const query = {
 /* end-Queries */
 /* Services */
 const createVideo = function (req, res){
-    functions.service(query.insert, req, res, [req.body.titulo, req.body.texto, req.body.link], "", modelVideo);
+    functions.service(query.insert, req, res, [req.body.titulo, req.body.texto, req.body.link], "", modelVideo, false);
 }
 
 const getAllVideos = function (req, res){
-    functions.service(query.selectAll, req, res, "", "default", modelVideo);
+    functions.service(query.selectAll, req, res, "", "default", modelVideo, false);
 }
 
 const updateVideo = function (req, res){
-    functions.service(query.update, req, res, [req.body.titulo, req.body.texto, req.body.link, req.body.id], "", modelVideo);
+    functions.service(query.update, req, res, [req.body.titulo, req.body.texto, req.body.link, req.body.id], "", modelVideo, false);
 }
 /* end-Services */
 
