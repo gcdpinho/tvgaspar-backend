@@ -52,7 +52,7 @@ var verifyToken = function (req, res, next) {
     if (token) {
         jwt.verify(token, config.criptografia.secret, function (error, decoded) {
             if (error)
-                return res.json({
+                return res.status(403).send({
                     success: false,
                     message: "Falha ao autenticar o token."
                 });
