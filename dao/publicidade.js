@@ -10,7 +10,7 @@ const query = {
 /* end-Queries */
 /* Services */
 const createPublicidade = function (req, res){
-    functions.service(query.insert, req, res, [req.body.titulo, req.body.texto, req.body.cor], "", modelPublicidade, false);
+    functions.service(query.insert, req, res, [req.body.titulo, req.body.tipo, req.body.texto, req.body.link, req.body.flgAtivo, req.body.idImagem], "", modelPublicidade, false);
 }
 
 const getAllPublicidades = function (req, res){
@@ -18,7 +18,7 @@ const getAllPublicidades = function (req, res){
 }
 
 const updatePublicidade = function (req, res){
-    functions.service(query.update, req, res, [req.body.titulo, req.body.texto, req.body.cor, req.body.id], "", modelPublicidade, false);
+    functions.service(query.update, req, res, [req.body.titulo, req.body.titulo, req.body.texto, req.body.link, req.body.flgAtivo, req.body.idImagem, req.body.id], "", modelPublicidade, false);
 }
 /* end-Services */
 
