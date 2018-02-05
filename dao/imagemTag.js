@@ -13,7 +13,7 @@ const createImagemTag = function (req, res){
 }
 
 const getAllImagensTags = function (req, res){
-    functions.service(query.selectAll, req, res, "", "default", modelImagemTag, true);
+    functions.service(query.selectAll, req, res, "", "default", modelImagemTag, false);
 }
 
 /* end-Services */

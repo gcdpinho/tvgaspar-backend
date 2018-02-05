@@ -1,7 +1,7 @@
 /* CONSTRUCTOR */
-var imageTag = function(data){
+var imagemTag = function(data){
     this.idImagem = data.idImagem;
     this.idTag = data.idTag;
 }
 
-module.exports = imageTag;
+module.exports = imagemTag;

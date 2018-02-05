@@ -113,3 +113,11 @@ CREATE TABLE imagemTag (
     FOREIGN KEY (idImagem) REFERENCES imagem (id),
     FOREIGN KEY (idTag) REFERENCES tag (id)
 );
+
+CREATE TABLE videoTag (
+    idVideo int NOT NULL,
+    idTag int NOT NULL,
+    PRIMARY KEY (idVideo, idTag),
+    FOREIGN KEY (idVideo) REFERENCES video (id),
+    FOREIGN KEY (idTag) REFERENCES tag (id)
+);

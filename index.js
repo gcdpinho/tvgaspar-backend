@@ -23,6 +23,7 @@ const imagem = require('./routes/imagem.js')(router);
 const video = require('./routes/video.js')(router);
 const categoria = require('./routes/categoria.js')(router);
 const imagemTag = require('./routes/imagemTag.js')(router);
+const videoTag = require('./routes/videoTag.js')(router);
 app.use('/', router);
 
 app.listen(process.env.PORT || 3000);
