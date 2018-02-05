@@ -6,6 +6,7 @@ var publicidade = function(data){
     this.texto = data.texto;
     this.link = data.link;
     this.flgAtivo = data.flgAtivo;
+    this.idImagem = data.idImagem;
 }
 
 /* GETTERS */
@@ -27,6 +28,9 @@ publicidade.prototype.getLink = function (){
 publicidade.prototype.getFlgAtivo = function (){
     return this.flgAtivo;
 }
+publicidade.prototype.getIdImagem = function (){
+    return this.idImagem;
+}
 
 /* SETTERS */
 publicidade.prototype.setId = function (id){
@@ -46,6 +50,9 @@ publicidade.prototype.setLink = function (link){
 }
 publicidade.prototype.setFlgAtivo = function (flgAtivo){
     this.flgAtivo = flgAtivo;
+}
+publicidade.prototype.setIdImagem = function (idImagem){
+    this.idImagem = idImagem;
 }
 
 module.exports = publicidade;
