@@ -11,15 +11,15 @@ CREATE TABLE usuario (
 
 CREATE TABLE imagem (
     id int NOT NULL AUTO_INCREMENT,
-    titulo varchar(100),
-    link varchar(100) NOT NULL,
+    titulo varchar(255),
+    link varchar(255) NOT NULL UNIQUE,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE publicidade (
     id int NOT NULL AUTO_INCREMENT,
-    titulo varchar(100),
-    tipo varchar(50) NOT NULL,
+    titulo varchar(255),
+    tipo varchar(255) NOT NULL,
     texto TEXT,
     link varchar (255),
     flgAtivo BOOLEAN DEFAULT 0, 
@@ -30,7 +30,7 @@ CREATE TABLE publicidade (
 
 CREATE TABLE comentario (
     id int NOT NULL AUTO_INCREMENT,
-    nome varchar(100),
+    nome varchar(255),
     texto TEXT NOT NULL,
     dtCadastro DATE NOT NULL,
     idNoticia int NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE video (
     id int NOT NULL AUTO_INCREMENT,
     titulo varchar(255),
     texto TEXT,
-    link varchar(255) NOT NULL,
+    link varchar(255) NOT NULL UNIQUE,
     PRIMARY KEY (id)
 );
 
