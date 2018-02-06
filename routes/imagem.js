@@ -17,5 +17,8 @@ module.exports = function (router) {
         imagem.updateImagem(req, res);
     });
 
-
+    router.post('/testeImagem', (req, res) => {
+        imagem.testeImagem(req, res);
+    });
+    
 }
