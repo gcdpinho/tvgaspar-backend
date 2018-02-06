@@ -10,7 +10,7 @@ const query = {
 /* end-Queries */
 /* Services */
 const createImagem = function (req, res){
-    functions.service(query.insert, req, res, [req.body.titulo, req.body.link], "", modelImagem, false);
+    functions.service(query.insert, req, res, [req.body.titulo, fs.readFileSync(req.body.link)], "", modelImagem, false);
 }
 
 const getAllImagens = function (req, res){
