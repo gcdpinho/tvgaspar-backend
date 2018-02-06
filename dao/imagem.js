@@ -21,6 +21,7 @@ const getAllImagens = function (req, res){
 const updateImagem = function (req, res){
     functions.service(query.update, req, res, [req.body.titulo, req.body.link, req.body.id], "", modelImagem, false);
 }
+
 /* end-Services */
 
 module.exports = {
