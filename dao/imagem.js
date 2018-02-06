@@ -20,19 +20,10 @@ const getAllImagens = function (req, res){
 const updateImagem = function (req, res){
     functions.service(query.update, req, res, [req.body.titulo, req.body.link, req.body.id], "", modelImagem, false);
 }
-
-const testeImagem = function (req, res){
-    console.log(req.files);
-    /*
-    functions.service("INSERT INTO teste (imagem) VALUES (?)", req, res, [req.files], "", modelImagem, false);
-    */
-}
-
 /* end-Services */
 
 module.exports = {
     createImagem,
     getAllImagens,
-    updateImagem,
-    testeImagem
+    updateImagem
 };
