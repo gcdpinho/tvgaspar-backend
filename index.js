@@ -15,11 +15,11 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-
+const imagem = require('./routes/imagem.js')(router);
 const usuario = require('./routes/usuario.js')(router);
 const tag = require('./routes/tag.js')(router);
 const noticia = require('./routes/noticia.js')(router);
-const imagem = require('./routes/imagem.js')(router);
+
 const video = require('./routes/video.js')(router);
 const categoria = require('./routes/categoria.js')(router);
 const imagemTag = require('./routes/imagemTag.js')(router);

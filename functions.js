@@ -64,7 +64,6 @@ const service = function (query, req, res, data, callback, model, multiples) {
 
 var verifyToken = function (req, res, next) {
     var token = req.body.token || req.query.token || req.headers['token'];
-    console.log(req.headers['token']);
     if (token) {
         jwt.verify(token, config.criptografia.secret, function (error, decoded) {
             if (error)
