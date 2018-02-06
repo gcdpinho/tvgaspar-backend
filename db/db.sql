@@ -12,7 +12,7 @@ CREATE TABLE usuario (
 CREATE TABLE imagem (
     id int NOT NULL AUTO_INCREMENT,
     titulo varchar(255),
-    link BLOB NOT NULL,
+    link varchar(255) NOT NULL UNIQUE,
     PRIMARY KEY (id)
 );
 
