@@ -1,7 +1,5 @@
 const functions = require('./../functions.js');
 const modelImagem = require('./../model/imagem.js');
-var fs = require("fs");
- 
 
 /* Queries */
 const query = {
@@ -12,8 +10,7 @@ const query = {
 /* end-Queries */
 /* Services */
 const createImagem = function (req, res){
-    var img = fs.readFileSync(req.body.link);
-    functions.service(query.insert, req, res, [req.body.titulo, img], "", modelImagem, false);
+    functions.service(query.insert, req, res, [req.body.titulo, req.body.link], "", modelImagem, false);
 }
 
 const getAllImagens = function (req, res){
