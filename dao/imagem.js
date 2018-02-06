@@ -22,21 +22,10 @@ const getAllImagens = function (req, res){
 const updateImagem = function (req, res){
     functions.service(query.update, req, res, [req.body.titulo, req.body.link, req.body.id], "", modelImagem, false);
 }
-
-const testeImagem = function (req, res){
-    const ftp = new jsftp({
-        host: "ftp.vulpis.tech/home/u709009684/public_html/tvgaspar/imagem",
-        user: "u709009684.ftptvgaspar",
-        pass:  "ftptvgaspar"
-      });
-
-      
-}
 /* end-Services */
 
 module.exports = {
     createImagem,
     getAllImagens,
-    updateImagem,
-    testeImagem
+    updateImagem
 };
