@@ -27,7 +27,23 @@ const testeImagem = function (req, res){
     const ftp = new jsftp({
         host: "ftp.vulpis.tech",
         user: "u709009684.ftptvgaspar",
-        pass:  "ftptvgaspar"
+        pass:  "ftptvgaspar",
+        createSocket: ({port, host}, firstAction) => {
+            return SocksClient.createConnection({
+              proxy: {
+                ipaddress: '159.203.75.200',
+                port: 1080,
+                type: 5
+              },
+        
+              command: 'connect',
+        
+              destination: {
+                host,
+                port
+              }
+            })
+          }
       });
 
       ftp.put(req.body.imagem, "file.jpg", err => {
