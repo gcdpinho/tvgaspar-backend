@@ -1,7 +1,6 @@
 const functions = require('./../functions.js');
 const modelImagem = require('./../model/imagem.js');
 
-
 /* Queries */
 const query = {
     insert: "INSERT INTO imagem (titulo, link) VALUES (?, ?)",
