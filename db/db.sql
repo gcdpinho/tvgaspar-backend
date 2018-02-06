@@ -5,7 +5,7 @@ CREATE TABLE usuario (
     senha varchar(255) NOT NULL,
     email varchar(255) UNIQUE,
     isAdm BOOLEAN DEFAULT 0,
-    token varchar(255)
+    token varchar(255),
     PRIMARY KEY (id)
 );
 
