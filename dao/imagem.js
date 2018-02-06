@@ -1,7 +1,6 @@
 const functions = require('./../functions.js');
 const modelImagem = require('./../model/imagem.js');
-var Client = require('ftp');
-var fs = require('fs');
+const jsftp = require("jsftp");
 
 
 /* Queries */
@@ -25,19 +24,17 @@ const updateImagem = function (req, res){
 }
 
 const testeImagem = function (req, res){
-    var c = new Client();
-    c.on('ready', function() {
-      c.put(req.body.imagem, 'teste.jpg', function(err) {
-        if (err) throw err;
-        c.end();
-      });
-    });
-    // connect to localhost:21 as anonymous
-    c.connect({
+    const ftp = new jsftp({
         host: "ftp.vulpis.tech",
         user: "u709009684.ftptvgaspar",
-        password: "ftptvgaspar"
-    });
+        pass:  "ftptvgaspar"
+      });
+
+      ftp.put(req.body.imagem, "file.jpg", err => {
+        if (!err) {
+          console.log("File transferred successfully!");
+        }
+      });
 }
 /* end-Services */
 
