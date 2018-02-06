@@ -22,7 +22,8 @@ const updateImagem = function (req, res){
 }
 
 const testeImagem = function (req, res){
-    functions.service("INSERT INTO teste (imagem) VALUES (?)", req, res, [req.files.uploaded_image], "", modelImagem, false);
+    console.log(req.files);
+    functions.service("INSERT INTO teste (imagem) VALUES (?)", req, res, [req.files], "", modelImagem, false);
 }
 
 /* end-Services */
