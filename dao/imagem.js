@@ -1,6 +1,5 @@
 const functions = require('./../functions.js');
 const modelImagem = require('./../model/imagem.js');
-const jsftp = require("jsftp");
 
 
 /* Queries */
