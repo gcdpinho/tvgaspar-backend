@@ -3,10 +3,6 @@ const functions = require('./../functions.js');
 
 module.exports = function (router) {
 
-    router.post('/testeImagem', (req, res) => {
-        imagem.testeImagem(req, res);
-    });
-
     router.use(functions.verifyToken);
 
     router.post('/createImagem', (req, res) => {
@@ -21,6 +17,8 @@ module.exports = function (router) {
         imagem.updateImagem(req, res);
     });
 
-    
+    router.post('/testeImagem', (req, res) => {
+        imagem.testeImagem(req, res);
+    });
 
 }
