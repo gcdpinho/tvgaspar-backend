@@ -25,7 +25,7 @@ const updateImagem = function (req, res){
 
 const testeImagem = function (req, res){
     const ftp = new jsftp({
-        host: "ftp.vulpis.tech",
+        host: "ftp.vulpis.tech/home/u709009684/public_html/tvgaspar/imagem",
         user: "u709009684.ftptvgaspar",
         pass:  "ftptvgaspar"
       });
