@@ -1,9 +1,6 @@
 const video = require('./../dao/video.js');
-const functions = require('./../functions.js');
 
 module.exports = function (router) {
-
-    router.use(functions.verifyToken);
 
     router.post('/createVideo', (req, res) => {
         video.createVideo(req, res);

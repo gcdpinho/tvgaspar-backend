@@ -1,9 +1,6 @@
 const publicidade = require('./../dao/publicidade.js');
-const functions = require('./../functions.js');
 
 module.exports = function (router) {
-
-    router.use(functions.verifyToken);
 
     router.post('/createPublicidade', (req, res) => {
         publicidade.createPublicidade(req, res);

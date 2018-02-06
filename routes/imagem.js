@@ -1,5 +1,4 @@
 const imagem = require('./../dao/imagem.js');
-const functions = require('./../functions.js');
 
 module.exports = function (router) {
 
