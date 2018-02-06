@@ -6,7 +6,7 @@ var upload = multer({ dest: 'uploads/' });
 module.exports = function (router) {
 
     router.post('/testeImagem', upload.single('fileInput'),  function(req, res) {
-        console.log(req.files);
+        console.log(req);
       });
 
     router.use(functions.verifyToken);
