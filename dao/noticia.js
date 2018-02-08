@@ -3,8 +3,8 @@ const modelNoticia = require('./../model/noticia.js');
 
 /* Queries */
 const query = {
-    insert: "INSERT INTO noticia (manchete, subManchete, texto, autor, dtCadastro, flgAtivo, idUsuario) VALUES (?, ?, ?, ?, ?, ?, ?)",
-    update: "UPDATE noticia SET manchete = ?, subManchete = ?, texto = ?, autor = ?, dtCadastro = ?, flgAtivo = ?, idUsuario = ? WHERE id = ?",
+    insert: "INSERT INTO noticia (manchete, subManchete, texto, autor, dtCadastro, flgAtivo, idUsuario) VALUES (?, ?, ?, ?, STR_TO_DATE(?, '%d/%m/%Y %H:%i'), ?, ?)",
+    update: "UPDATE noticia SET manchete = ?, subManchete = ?, texto = ?, autor = ?, dtCadastro = STR_TO_DATE(?, '%d/%m/%Y %H:%i'), flgAtivo = ?, idUsuario = ? WHERE id = ?",
     selectAll: "SELECT * FROM noticia"
 }
 /* end-Queries */
