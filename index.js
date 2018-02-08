@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const bodyParser = require('body-parser');
+require('./routes.js')(router);
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -15,20 +16,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-
-const usuario = require('./routes/usuario.js')(router);
-const tag = require('./routes/tag.js')(router);
-const noticia = require('./routes/noticia.js')(router);
-const imagem = require('./routes/imagem.js')(router);
-const video = require('./routes/video.js')(router);
-const categoria = require('./routes/categoria.js')(router);
-const imagemTag = require('./routes/imagemTag.js')(router);
-const videoTag = require('./routes/videoTag.js')(router);
-const publicidade = require('./routes/publicidade.js')(router);
-const noticiaTag = require('./routes/noticiaTag.js')(router);
-const noticiaCategoria = require('./routes/noticiaCategoria.js')(router);
-const noticiaVideo = require('./routes/noticiaVideo.js')(router);
-const noticiaImagem = require('./routes/noticiaImagem.js')(router);
 
 app.use('/', router);
 

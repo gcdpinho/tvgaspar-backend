@@ -40,7 +40,7 @@ CREATE TABLE comentario (
 
 CREATE TABLE categoria (
     id int NOT NULL AUTO_INCREMENT,
-    titulo varchar(255) NOT NULL,
+    titulo varchar(255) NOT NULL UNIQUE,
     texto TEXT,
     cor varchar(255),
     PRIMARY KEY (id)
