@@ -25,6 +25,10 @@ const categoria = require('./routes/categoria.js')(router);
 const imagemTag = require('./routes/imagemTag.js')(router);
 const videoTag = require('./routes/videoTag.js')(router);
 const publicidade = require('./routes/publicidade.js')(router);
+const noticiaTag = require('./routes/noticiaTag.js')(router);
+const noticiaCategoria = require('./routes/noticiaCategoria.js')(router);
+const noticiaVideo = require('./routes/noticiaVideo.js')(router);
+const noticiaImagem = require('./routes/noticiaImagem.js')(router);
 
 app.use('/', router);
 
