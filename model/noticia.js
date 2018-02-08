@@ -7,6 +7,7 @@ var noticia = function(data){
     this.autor = data.autor;
     this.dtCadastro = data.dtCadastro;
     this.flgAtivo = data.flgAtivo;
+    this.aprovacao = data.aprovacao;
     this.idUsuario = data.idUsuario;
 }
 
@@ -31,6 +32,9 @@ noticia.prototype.getDtCadastro = function (){
 }
 noticia.prototype.getFlgAtivo = function (){
     return this.flgAtivo;
+}
+noticia.prototype.getAprovacao = function (){
+    return this.aprovacao;
 }
 noticia.prototype.getIdUsuario = function (){
     return this.idUsuario;
@@ -57,6 +61,9 @@ noticia.prototype.setDtCadastro = function (dtCadastro){
 }
 noticia.prototype.setFlgAtivo = function (flgAtivo){
     this.flgAtivo = flgAtivo;
+}
+noticia.prototype.setAprovacao = function (aprovacao){
+    this.aprovacao = aprovacao;
 }
 noticia.prototype.setIdUsuario = function (idUsuario){
     this.idUsuario = idUsuario;
