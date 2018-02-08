@@ -7,6 +7,7 @@ var noticia = function(data){
     this.autor = data.autor;
     this.dtCadastro = data.dtCadastro;
     this.flgAtivo = data.flgAtivo;
+    this.idUsuario = data.idUsuario;
 }
 
 /* GETTERS */
@@ -31,6 +32,9 @@ noticia.prototype.getDtCadastro = function (){
 noticia.prototype.getFlgAtivo = function (){
     return this.flgAtivo;
 }
+noticia.prototype.getIdUsuario = function (){
+    return this.idUsuario;
+}
 
 /* SETTERS */
 noticia.prototype.setId = function (id){
@@ -53,6 +57,9 @@ noticia.prototype.setDtCadastro = function (dtCadastro){
 }
 noticia.prototype.setFlgAtivo = function (flgAtivo){
     this.flgAtivo = flgAtivo;
+}
+noticia.prototype.setIdUsuario = function (idUsuario){
+    this.idUsuario = idUsuario;
 }
 
 module.exports = noticia;
