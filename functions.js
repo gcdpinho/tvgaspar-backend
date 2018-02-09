@@ -44,7 +44,7 @@ const service = function (query, req, res, data, callback, model, multiples) {
     else
         connection.query(query, data, function (error, results, fields) {
             if (error)
-            return res.status(403).send({
+            return res.status(409).send({
                 success: false,
                 message: error
             });
@@ -80,7 +80,7 @@ var verifyToken = function (req, res, next) {
             }
         });
     } else
-        return res.status(403).send({
+        return res.status(401).send({
             success: false,
             message: "Requisição sem token."
         });
