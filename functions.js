@@ -40,13 +40,11 @@ const service = function (query, req, res, data, callback, model, multiples) {
             success: true
         });
         connection.end();
-    } else
+    }
+    else
         connection.query(query, data, function (error, results, fields) {
             if (error)
-                res.status(409).send({
-                    success: false,
-                    message: erro
-                });
+                res.json(error);
             else {
                 switch (callback) {
                     case "":
