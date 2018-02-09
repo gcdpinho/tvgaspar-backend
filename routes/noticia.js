@@ -14,5 +14,7 @@ module.exports = function (router) {
         noticia.updateNoticia(req, res);
     });
 
-
+    router.post('/updateAprovacao', (req, res) => {
+        noticia.updateAprovacao(req, res);
+    });
 }

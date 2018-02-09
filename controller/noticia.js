@@ -14,10 +14,15 @@ const getAllNoticias = function (req, res){
 const updateNoticia = function (req, res){
     functions.service(query.noticia.update, req, res, [req.body.manchete, req.body.subManchete, req.body.texto, req.body.autor, req.body.dtCadastro, req.body.flgAtivo, req.body.aprovacao, req.body.idUsuario, req.body.id], "", modelNoticia, false);
 }
+
+const updateAprovacao = function(req, res){
+    functions.service(query.noticia.updateAprovacao, req, res, [req.body.aprovacao, req.body.id], "", modelNoticia, false)
+}
 /* end-Services */
 
 module.exports = {
     createNoticia,
     getAllNoticias,
-    updateNoticia
+    updateNoticia,
+    updateAprovacao
 };

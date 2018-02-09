@@ -62,7 +62,7 @@ CREATE TABLE video (
 
 CREATE TABLE noticia (
     id int NOT NULL AUTO_INCREMENT,
-    manchete varchar(255) NOT NULL,
+    manchete varchar(255) NOT NULL UNIQUE,
     subManchete varchar(255),
     texto MEDIUMTEXT NOT NULL,
     autor varchar(255),
