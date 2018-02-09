@@ -44,9 +44,7 @@ const service = function (query, req, res, data, callback, model, multiples) {
     else
         connection.query(query, data, function (error, results, fields) {
             if (error)
-                res.json({
-                    success: false,
-                    message: error});
+                res.json(error);
             else {
                 switch (callback) {
                     case "":
