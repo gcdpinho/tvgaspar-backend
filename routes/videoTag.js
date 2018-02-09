@@ -1,4 +1,4 @@
-const videoTag = require('./../dao/videoTag.js');
+const videoTag = require('./../controller/videoTag.js');
 
 module.exports = function (router) {
 

@@ -1,4 +1,4 @@
-const categoria = require('./../dao/categoria.js');
+const categoria = require('./../controller/categoria.js');
 
 module.exports = function (router) {
 

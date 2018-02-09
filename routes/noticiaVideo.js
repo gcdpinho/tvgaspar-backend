@@ -1,4 +1,4 @@
-const noticiaVideo = require('./../dao/noticiaVideo.js');
+const noticiaVideo = require('./../controller/noticiaVideo.js');
 
 module.exports = function (router) {
 

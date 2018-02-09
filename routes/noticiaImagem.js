@@ -1,4 +1,4 @@
-const noticiaImagem = require('./../dao/noticiaImagem.js');
+const noticiaImagem = require('./../controller/noticiaImagem.js');
 
 module.exports = function (router) {
 

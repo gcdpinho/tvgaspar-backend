@@ -1,4 +1,4 @@
-const usuario = require('./../dao/usuario.js');
+const usuario = require('./../controller/usuario.js');
 const functions = require('./../functions.js');
 
 module.exports = function (router) {

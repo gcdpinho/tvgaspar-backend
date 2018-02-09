@@ -1,4 +1,4 @@
-const video = require('./../dao/video.js');
+const video = require('./../controller/video.js');
 
 module.exports = function (router) {
 

@@ -4,36 +4,28 @@ const jwt = require('jsonwebtoken');
 const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
 const modelUsuario = require('./../model/usuario.js');
 const functions = require('./../functions.js');
+const query = require('./../dao/query.js');
 
-/* Queries */
-const query = {
-    insert: "INSERT INTO usuario (nome, login, senha, email, isAdm) VALUES (?, ?, ?, ?)",
-    updateToken: "UPDATE usuario SET token = ? WHERE login = ?",
-    selectAll: "SELECT nome, login, email, isAdm FROM usuario",
-    selectByLogin: "SELECT * FROM usuario WHERE login = ?",
-    selectByToken: "SELECT id, nome, email, isAdm FROM usuario WHERE token = ?"
-}
-/* end-Queries */
 /* Services */
 const createUsuario = function (req, res) {
     const usuario = new modelUsuario(req.body);
     cipher.update(usuario.getSenha());
     usuario.setSenha(cipher.final(config.criptografia.tipo));
-    functions.service(query.insert, req, res, [usuario.getNome(), usuario.getLogin(), usuario.getSenha(), usuario.getEmail(), usuario.getIsAdm()], "", modelUsuario, false);
+    functions.service(query.usuario.insert, req, res, [usuario.getNome(), usuario.getLogin(), usuario.getSenha(), usuario.getEmail(), usuario.getIsAdm()], "", modelUsuario, false);
 }
 
 const updateToken = function (req, res, data) {
-    functions.service(query.updateToken, req, res, [data.token, data.login], function () {
+    functions.service(query.usuario.updateToken, req, res, [data.token, data.login], function () {
         return;
     }, modelUsuario, false);
 }
 
 const getAllUsuarios = function (req, res) {
-    functions.service(query.selectAll, req, res, "", "default", modelUsuario, false);
+    functions.service(query.usuario.selectAll, req, res, "", "default", modelUsuario, false);
 }
 
 const findByLogin = function (req, res) {
-    functions.service(query.selectByLogin, req, res, req.body.login, function (results) {
+    functions.service(query.usuario.selectByLogin, req, res, req.body.login, function (results) {
 
         if (functions.isEmptyObject(results))
             res.json({
@@ -73,7 +65,7 @@ const findByLogin = function (req, res) {
 }
 
 const findByToken = function (req, res) {
-    functions.service(query.selectByToken, req, res, req.body.token, "default", modelUsuario, false);
+    functions.service(query.usuario.selectByToken, req, res, req.body.token, "default", modelUsuario, false);
 }
 /* end-Services */
 

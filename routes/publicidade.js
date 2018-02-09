@@ -1,4 +1,4 @@
-const publicidade = require('./../dao/publicidade.js');
+const publicidade = require('./../controller/publicidade.js');
 
 module.exports = function (router) {
 

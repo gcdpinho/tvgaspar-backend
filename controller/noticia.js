@@ -1,0 +1,23 @@
+const functions = require('./../functions.js');
+const modelNoticia = require('./../model/noticia.js');
+const query = require('./../dao/query.js');
+
+/* Services */
+const createNoticia = function (req, res){
+    functions.service(query.noticia.insert, req, res, [req.body.manchete, req.body.subManchete, req.body.texto, req.body.autor, req.body.dtCadastro, req.body.flgAtivo, req.body.aprovacao, req.body.idUsuario], "", modelNoticia, false);
+}
+
+const getAllNoticias = function (req, res){
+    functions.service(query.noticia.selectAll, req, res, "", "default", modelNoticia, false);
+}
+
+const updateNoticia = function (req, res){
+    functions.service(query.noticia.update, req, res, [req.body.manchete, req.body.subManchete, req.body.texto, req.body.autor, req.body.dtCadastro, req.body.flgAtivo, req.body.aprovacao, req.body.idUsuario, req.body.id], "", modelNoticia, false);
+}
+/* end-Services */
+
+module.exports = {
+    createNoticia,
+    getAllNoticias,
+    updateNoticia
+};

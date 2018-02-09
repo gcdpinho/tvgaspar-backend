@@ -1,4 +1,4 @@
-const imagemTag = require('./../dao/imagemTag.js');
+const imagemTag = require('./../controller/imagemTag.js');
 
 module.exports = function (router) {
 

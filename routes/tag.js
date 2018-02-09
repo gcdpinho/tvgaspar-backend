@@ -1,4 +1,4 @@
-const tag = require('./../dao/tag.js');
+const tag = require('./../controller/tag.js');
 
 module.exports = function (router) {
 
