@@ -18,10 +18,10 @@ const imagemTag = {
 
 const noticia = {
     insert: "INSERT INTO noticia (manchete, subManchete, texto, autor, dtCadastro, flgAtivo, aprovacao, idUsuario) VALUES (?, ?, ?, ?, STR_TO_DATE(?, '%d/%m/%Y %H:%i'), ?, ?, ?)",
-    update: "UPDATE noticia SET manchete = ?, subManchete = ?, texto = ?, autor = ?, dtCadastro = STR_TO_DATE(?, '%d/%m/%Y %H:%i'), flgAtivo = ?, aprovacao = ?, idUsuario = ? WHERE id = ?",
-    selectAll: "SELECT * FROM noticia",
+    update: "UPDATE noticia SET manchete = ?, subManchete = ?, texto = ?, autor = ?, dtCadastro = STR_TO_DATE(?, '%d/%m/%Y %H:%i') WHERE id = ?",
+    selectAll: "SELECT * FROM noticia WHERE flgAtivo = 1",
     updateAprovacao: "UPDATE noticia SET aprovacao = ? WHERE id = ?",
-    deleteById: "DELETE FROM noticia WHERE id = ?"
+    deleteById: "UPDATE noticia SET flgAtivo = 0 WHERE id = ?"
 }
 
 const noticiaCategoria = {
@@ -47,7 +47,7 @@ const noticiaVideo = {
 const publicidade = {
     insert: "INSERT INTO publicidade (titulo, tipo, texto, link, flgAtivo, idImagem) VALUES (?, ?, ?, ?, ?, ?)",
     update: "UPDATE publicidade SET titulo = ?, tipo = ?, texto = ?, link = ?, flgAtivo = ?, idImagem = ? WHERE id = ?",
-    selectAll: "SELECT * FROM publicidade"
+    selectAll: "SELECT * FROM publicidade WHERE flgAtivo = 1"
 }
 
 const tag = {
