@@ -13,5 +13,8 @@ module.exports = function (router) {
     router.post('/updateImagem', (req, res) => {
         imagem.updateImagem(req, res);
     });  
+    router.post('/deleteImagemById', (req, res) => {
+        imagem.deleteById(req, res);
+    });
 
 }

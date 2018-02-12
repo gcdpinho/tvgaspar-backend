@@ -14,4 +14,7 @@ module.exports = function (router) {
         categoria.updateCategoria(req, res);
     });
 
+    router.post('/deleteCategoriaById', (req, res) => {
+        categoria.deleteById(req, res);
+    });
 }

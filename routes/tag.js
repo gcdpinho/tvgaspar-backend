@@ -14,4 +14,8 @@ module.exports = function (router) {
         tag.updateTag(req, res);
     });
 
+    router.post('/deleteTagById', (req, res) => {
+        tag.deleteById(req, res);
+    });
+
 }

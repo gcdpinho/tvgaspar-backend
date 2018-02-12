@@ -14,4 +14,8 @@ module.exports = function (router) {
         publicidade.updatePublicidade(req, res);
     });
 
+    router.post('/deletePublicidadeById', (req, res) => {
+        publicidade.deleteById(req, res);
+    });
+
 }
