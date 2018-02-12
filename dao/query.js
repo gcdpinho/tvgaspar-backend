@@ -57,7 +57,7 @@ const tag = {
     insert: "INSERT INTO tag (titulo) VALUES (?)",
     update: "UPDATE tag SET titulo = ? WHERE id = ?",
     selectAll: "SELECT * FROM tag",
-    deleteById: "DELETE FROM categoria WHERE id = ?"
+    deleteById: "DELETE FROM tag WHERE id = ?"
 }
 
 const usuario = {
@@ -72,7 +72,7 @@ const video = {
     insert: "INSERT INTO video (titulo, texto, link) VALUES (?, ?, ?)",
     update: "UPDATE video SET titulo = ?, texto = ?, link = ? WHERE id = ?",
     selectAll: "SELECT * FROM video",
-    deleteById: "DELETE FROM categoria WHERE id = ?"
+    deleteById: "DELETE FROM video WHERE id = ?"
 }
 
 const videoTag = {
