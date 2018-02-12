@@ -11,7 +11,7 @@ module.exports = function (router) {
     });
 
     router.post('/updateVideo', (req, res) => {
-        ideo.updateVideo(req, res);
+        video.updateVideo(req, res);
     });
 
     router.post('/deleteVideoById', (req, res) => {
