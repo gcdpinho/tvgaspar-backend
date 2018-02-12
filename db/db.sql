@@ -18,7 +18,7 @@ CREATE TABLE imagem (
 
 CREATE TABLE publicidade (
     id int NOT NULL AUTO_INCREMENT,
-    titulo varchar(255),
+    titulo varchar(255) NOT NULL UNIQUE,
     tipo varchar(255) NOT NULL,
     texto TEXT,
     link varchar (255),

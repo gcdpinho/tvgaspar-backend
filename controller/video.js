@@ -14,10 +14,15 @@ const getAllVideos = function (req, res){
 const updateVideo = function (req, res){
     functions.service(query.video.update, req, res, [req.body.titulo, req.body.texto, req.body.link, req.body.id], "", modelVideo, false);
 }
+
+const deleteById = function(req, res){
+    functions.service(query.noticia.deleteById, req, res, [req.body.id], "", modelVideo, false);
+}
 /* end-Services */
 
 module.exports = {
     createVideo,
     getAllVideos,
-    updateVideo
+    updateVideo,
+    deleteById
 };

@@ -2,13 +2,15 @@
 const categoria = {
     insert: "INSERT INTO categoria (titulo, texto, cor) VALUES (?, ?, ?)",
     update: "UPDATE categoria SET titulo = ?, texto = ?, cor = ? WHERE id = ?",
-    selectAll: "SELECT * FROM categoria"
+    selectAll: "SELECT * FROM categoria",
+    deleteById: "DELETE FROM categoria WHERE id = ?"
 }
 
 const imagem = {
     insert: "INSERT INTO imagem (titulo, link) VALUES (?, ?)",
-    update: "UPDATE imagem SET titulo = ?, link = ? WHERE id = ?",
-    selectAll: "SELECT * FROM imagem"
+    update: "UPDATE imagem SET titulo = ? WHERE id = ?",
+    selectAll: "SELECT * FROM imagem",
+    deleteById: "DELETE FROM imagem WHERE id = ?"
 }
 
 const imagemTag = {
@@ -46,14 +48,16 @@ const noticiaVideo = {
 
 const publicidade = {
     insert: "INSERT INTO publicidade (titulo, tipo, texto, link, flgAtivo, idImagem) VALUES (?, ?, ?, ?, ?, ?)",
-    update: "UPDATE publicidade SET titulo = ?, tipo = ?, texto = ?, link = ?, flgAtivo = ?, idImagem = ? WHERE id = ?",
-    selectAll: "SELECT * FROM publicidade WHERE flgAtivo = 1"
+    update: "UPDATE publicidade SET titulo = ?, tipo = ?, texto = ?, link = ? WHERE id = ?",
+    selectAll: "SELECT * FROM publicidade WHERE flgAtivo = 1",
+    deleteById: "UPDATE publicidade SET flgAtivo = 0 WHERE id = ?"
 }
 
 const tag = {
     insert: "INSERT INTO tag (titulo) VALUES (?)",
     update: "UPDATE tag SET titulo = ? WHERE id = ?",
-    selectAll: "SELECT * FROM tag"
+    selectAll: "SELECT * FROM tag",
+    deleteById: "DELETE FROM categoria WHERE id = ?"
 }
 
 const usuario = {
@@ -67,7 +71,8 @@ const usuario = {
 const video = {
     insert: "INSERT INTO video (titulo, texto, link) VALUES (?, ?, ?)",
     update: "UPDATE video SET titulo = ?, texto = ?, link = ? WHERE id = ?",
-    selectAll: "SELECT * FROM video"
+    selectAll: "SELECT * FROM video",
+    deleteById: "DELETE FROM categoria WHERE id = ?"
 }
 
 const videoTag = {

@@ -14,10 +14,15 @@ const getAllCategorias = function (req, res){
 const updateCategoria = function (req, res){
     functions.service(query.categoria.update, req, res, [req.body.titulo, req.body.texto, req.body.cor, req.body.id], "", modelCategoria, false);
 }
+
+const deleteById = function(req, res){
+    functions.service(query.noticia.deleteById, req, res, [req.body.id], "", modelCategoria, false);
+}
 /* end-Services */
 
 module.exports = {
     createCategoria,
     getAllCategorias,
-    updateCategoria
+    updateCategoria,
+    deleteById
 };
