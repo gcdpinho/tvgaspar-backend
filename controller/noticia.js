@@ -16,7 +16,11 @@ const updateNoticia = function (req, res){
 }
 
 const updateAprovacao = function(req, res){
-    functions.service(query.noticia.updateAprovacao, req, res, [req.body.aprovacao, req.body.id], "", modelNoticia, false)
+    functions.service(query.noticia.updateAprovacao, req, res, [req.body.aprovacao, req.body.id], "", modelNoticia, false);
+}
+
+const deleteById = function(req, res){
+    functions.service(query.noticia.deleteById, req, res, [req.body.id], "", modelNoticia, false);
 }
 /* end-Services */
 
@@ -24,5 +28,6 @@ module.exports = {
     createNoticia,
     getAllNoticias,
     updateNoticia,
-    updateAprovacao
+    updateAprovacao,
+    deleteById
 };

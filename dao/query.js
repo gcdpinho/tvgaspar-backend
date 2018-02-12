@@ -20,7 +20,8 @@ const noticia = {
     insert: "INSERT INTO noticia (manchete, subManchete, texto, autor, dtCadastro, flgAtivo, aprovacao, idUsuario) VALUES (?, ?, ?, ?, STR_TO_DATE(?, '%d/%m/%Y %H:%i'), ?, ?, ?)",
     update: "UPDATE noticia SET manchete = ?, subManchete = ?, texto = ?, autor = ?, dtCadastro = STR_TO_DATE(?, '%d/%m/%Y %H:%i'), flgAtivo = ?, aprovacao = ?, idUsuario = ? WHERE id = ?",
     selectAll: "SELECT * FROM noticia",
-    updateAprovacao: "UPDATE noticia SET aprovacao = ? WHERE id = ?"
+    updateAprovacao: "UPDATE noticia SET aprovacao = ? WHERE id = ?",
+    deleteById: "DELETE FROM noticia WHERE id = ?"
 }
 
 const noticiaCategoria = {
