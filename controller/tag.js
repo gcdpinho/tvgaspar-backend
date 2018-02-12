@@ -16,7 +16,7 @@ const updateTag = function (req, res) {
 }
 
 const deleteById = function (req, res) {
-    functions.service(query.noticia.deleteById, req, res, [req.body.id], "", modelTag, false);
+    functions.service(query.tag.deleteById, req, res, [req.body.id], "", modelTag, false);
 }
 /* end-Services */
 

@@ -16,7 +16,7 @@ const updateVideo = function (req, res){
 }
 
 const deleteById = function(req, res){
-    functions.service(query.noticia.deleteById, req, res, [req.body.id], "", modelVideo, false);
+    functions.service(query.video.deleteById, req, res, [req.body.id], "", modelVideo, false);
 }
 /* end-Services */
 

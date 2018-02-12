@@ -16,7 +16,7 @@ const updatePublicidade = function (req, res) {
 }
 
 const deleteById = function (req, res) {
-    functions.service(query.noticia.deleteById, req, res, [req.body.id], "", modelPublicidade, false);
+    functions.service(query.publicidade.deleteById, req, res, [req.body.id], "", modelPublicidade, false);
 }
 /* end-Services */
 
