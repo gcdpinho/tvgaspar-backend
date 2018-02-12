@@ -18,7 +18,7 @@ module.exports = function (router) {
         noticia.updateAprovacao(req, res);
     });
 
-    router.post('/deleteById', (req, res) => {
+    router.post('/deleteNoticiaById', (req, res) => {
         noticia.deleteById(req, res);
     });
 }
