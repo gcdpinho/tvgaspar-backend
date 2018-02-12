@@ -12,7 +12,7 @@ const getAllPublicidades = function (req, res) {
 }
 
 const updatePublicidade = function (req, res) {
-    functions.service(query.publicidade.update, req, res, [req.body.titulo, req.body.titulo, req.body.texto, req.body.link, req.body.id], "", modelPublicidade, false);
+    functions.service(query.publicidade.update, req, res, [req.body.titulo, req.body.tipo, req.body.texto, req.body.link, req.body.id], "", modelPublicidade, false);
 }
 
 const deleteById = function (req, res) {
