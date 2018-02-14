@@ -81,7 +81,7 @@ const videoTag = {
 }
 
 const insercao = {
-    insert: "INSERT INTO insercao (campo, dtCasdastro) VALUES (?, STR_TO_DATE(?, '%d/%m/%Y %H:%i'))",
+    insert: "INSERT INTO insercao (campo, dtCadastro) VALUES (?, STR_TO_DATE(?, '%d/%m/%Y %H:%i'))",
     selectAll: "SELECT * FROM insercao"
 }
 /* end-Queries */
