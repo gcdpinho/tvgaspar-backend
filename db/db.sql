@@ -1,3 +1,10 @@
+CREATE TABLE insercao(
+    id int NOT NULL AUTO_INCREMENT,
+    campo varchar(255) NOT NULL,
+    dtCadastro DATETIME NOT NULL,
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE usuario (
     id int NOT NULL AUTO_INCREMENT,
     nome varchar(255) NOT NULL,
