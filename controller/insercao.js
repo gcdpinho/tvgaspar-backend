@@ -11,9 +11,14 @@ const getAllInsercoes = function (req, res){
     functions.service(query.insercao.selectAll, req, res, "", "default", modelInsercao, false);
 }
 
+const getInsercoes = function (req, res){
+    functions.service(query.insercao.select, req, res, [req.body.campo], "default", modelInsercao, false);
+}
+
 /* end-Services */
 
 module.exports = {
     createInsercao,
-    getAllInsercoes
+    getAllInsercoes,
+    getInsercoes
 };

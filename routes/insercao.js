@@ -10,4 +10,8 @@ module.exports = function (router) {
         insercao.getAllInsercoes(req, res);
     });
 
+    router.post('/getInsercoes', (req, res) => {
+        insercao.getInsercoes(req, res);
+    });
+
 }
