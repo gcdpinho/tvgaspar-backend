@@ -80,11 +80,6 @@ const videoTag = {
     selectAll: "SELECT * FROM videoTag"
 }
 
-const insercao = {
-    insert: "INSERT INTO insercao (campo, dtCadastro) VALUES (?, STR_TO_DATE(?, '%d/%m/%Y %H:%i'))",
-    selectAll: "SELECT * FROM insercao",
-    select: "SELECT * FROM insercao WHERE campo = ?"
-}
 /* end-Queries */
 
 module.exports = {
@@ -100,6 +95,5 @@ module.exports = {
     tag,
     usuario,
     video,
-    videoTag,
-    insercao
+    videoTag
 }

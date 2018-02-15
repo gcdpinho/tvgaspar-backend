@@ -12,5 +12,4 @@ module.exports = function (router) {
     require('./routes/noticiaCategoria.js')(router);
     require('./routes/noticiaVideo.js')(router);
     require('./routes/noticiaImagem.js')(router);
-    require('./routes/insercao.js')(router);
 }
