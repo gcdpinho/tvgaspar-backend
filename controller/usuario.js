@@ -73,21 +73,18 @@ const updateData = function (req, res) {
 }
 
 const alterPassword = function (req, res) {
-    console.log(getSenhaById(req, res, {
-        id: req.body.id,
-        senha: req.body.senha
-    }));
-}
-
-const getSenhaById = function (req, res, data) {
-    functions.service(query.usuario.selectSenhaById, req, res, [data.id], function (results) {
+    functions.service(query.usuario.selectSenhaById, req, res, [req.body.id], function (results) {
         var rows = JSON.parse(JSON.stringify(results[0]));
         const decipher = crypto.createDecipher(config.criptografia.alg, config.criptografia.secret);
         decipher.update(rows.senha, config.criptografia.tipo);
-        if (decipher.final() == data.senha)
-            return true;
+        if (decipher.final() == req.body.senha){
+            functions.service(query.usuario.updateSenha, req, res, [req.body.novaSenha, req.body.id], "", modelUsuario, false)
+        }
         else
-            return false;
+            res.json({
+                success: false,
+                message: "Senha atual incorreta."
+            });
     }, modelUsuario, false);
 }
 /* end-Services */
