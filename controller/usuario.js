@@ -4,10 +4,11 @@ const jwt = require('jsonwebtoken');
 const modelUsuario = require('./../model/usuario.js');
 const functions = require('./../functions.js');
 const query = require('./../dao/query.js');
+const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
+const decipher = crypto.createDecipher(config.criptografia.alg, config.criptografia.secret);
 
 /* Services */
 const createUsuario = function (req, res) {
-    const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
     const usuario = new modelUsuario(req.body);
     cipher.update(usuario.getSenha());
     usuario.setSenha(cipher.final(config.criptografia.tipo));
@@ -34,7 +35,6 @@ const findByLogin = function (req, res) {
             });
         else {
             var rows = JSON.parse(JSON.stringify(results[0]))
-            const decipher = crypto.createDecipher(config.criptografia.alg, config.criptografia.secret);
             decipher.update(rows.senha, config.criptografia.tipo);
             if (decipher.final() != req.body.senha)
                 res.json({
@@ -75,10 +75,8 @@ const updateData = function (req, res) {
 const alterPassword = function (req, res) {
     functions.service(query.usuario.selectSenhaById, req, res, [req.body.id], function (results) {
         var rows = JSON.parse(JSON.stringify(results[0]));
-        const decipher = crypto.createDecipher(config.criptografia.alg, config.criptografia.secret);
         decipher.update(rows.senha, config.criptografia.tipo);
         if (decipher.final() == req.body.senha){
-            const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
             cipher.update(req.body.novaSenha);
             functions.service(query.usuario.updateSenha, req, res, [cipher.final(config.criptografia.tipo), req.body.id], "", modelUsuario, false)
         }
