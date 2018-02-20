@@ -78,7 +78,8 @@ const alterPassword = function (req, res) {
         const decipher = crypto.createDecipher(config.criptografia.alg, config.criptografia.secret);
         decipher.update(rows.senha, config.criptografia.tipo);
         if (decipher.final() == req.body.senha){
-            functions.service(query.usuario.updateSenha, req, res, [req.body.novaSenha, req.body.id], "", modelUsuario, false)
+            cipher.update(req.body.novaSenha);
+            functions.service(query.usuario.updateSenha, req, res, [cipher.final(config.criptografia.tipo), req.body.id], "", modelUsuario, false)
         }
         else
             res.json({
