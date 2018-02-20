@@ -67,11 +67,16 @@ const findByLogin = function (req, res) {
 const findByToken = function (req, res) {
     functions.service(query.usuario.selectByToken, req, res, req.body.token, "default", modelUsuario, false);
 }
+
+const updateData = function(req, res){
+    functions.service(query.usuario.updateData, req, res, [req.body.nome, req.body.email, req.body.id], "", modelUsuario, false);
+}
 /* end-Services */
 
 module.exports = {
     createUsuario,
     getAllUsuarios,
     findByLogin,
-    findByToken
+    findByToken,
+    updateData
 };

@@ -21,4 +21,7 @@ module.exports = function (router) {
         usuario.getAllUsuarios(req, res);
     });
 
+    router.post('/updateData', (req, res) => {
+        usuario.updateData(req, res);
+    });
 }

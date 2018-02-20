@@ -63,6 +63,8 @@ const tag = {
 const usuario = {
     insert: "INSERT INTO usuario (nome, login, senha, email, isAdm) VALUES (?, ?, ?, ?)",
     updateToken: "UPDATE usuario SET token = ? WHERE login = ?",
+    updateData: "UPDATE usuario SET nome = ?, email = ? WHERE id = ?",
+    updateSenha: "UPDATE usuario SET senha = ? WHERE id = ?",
     selectAll: "SELECT nome, login, email, isAdm FROM usuario",
     selectByLogin: "SELECT * FROM usuario WHERE login = ?",
     selectByToken: "SELECT id, nome, email, isAdm FROM usuario WHERE token = ?"
