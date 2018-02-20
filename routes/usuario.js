@@ -24,4 +24,8 @@ module.exports = function (router) {
     router.post('/updateData', (req, res) => {
         usuario.updateData(req, res);
     });
+
+    router.post('/alterPassword', (req, res) => {
+        usuario.alterPassword(req, res);
+    });
 }

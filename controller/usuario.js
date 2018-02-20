@@ -68,8 +68,27 @@ const findByToken = function (req, res) {
     functions.service(query.usuario.selectByToken, req, res, req.body.token, "default", modelUsuario, false);
 }
 
-const updateData = function(req, res){
+const updateData = function (req, res) {
     functions.service(query.usuario.updateData, req, res, [req.body.nome, req.body.email, req.body.id], "", modelUsuario, false);
+}
+
+const alterPassword = function (req, res) {
+    console.log(getSenhaById(req, res, {
+        id: req.body.id,
+        senha: req.body.senha
+    }));
+}
+
+const getSenhaById = function (req, res, data) {
+    functions.service(query.usuario.selectSenhaById, req, res, [data.id], function (results) {
+        var rows = JSON.parse(JSON.stringify(results[0]));
+        const decipher = crypto.createDecipher(config.criptografia.alg, config.criptografia.secret);
+        decipher.update(rows.senha, config.criptografia.tipo);
+        if (decipher.final() == data.senha)
+            return true;
+        else
+            return false;
+    }, modelUsuario, false);
 }
 /* end-Services */
 
@@ -78,5 +97,6 @@ module.exports = {
     getAllUsuarios,
     findByLogin,
     findByToken,
-    updateData
+    updateData,
+    alterPassword
 };

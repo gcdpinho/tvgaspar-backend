@@ -67,7 +67,8 @@ const usuario = {
     updateSenha: "UPDATE usuario SET senha = ? WHERE id = ?",
     selectAll: "SELECT nome, login, email, isAdm FROM usuario",
     selectByLogin: "SELECT * FROM usuario WHERE login = ?",
-    selectByToken: "SELECT id, nome, email, isAdm FROM usuario WHERE token = ?"
+    selectByToken: "SELECT id, nome, email, isAdm FROM usuario WHERE token = ?",
+    selectSenhaById: "SELECT senha FROM usuario WHERE id = ?"
 }
 
 const video = {
