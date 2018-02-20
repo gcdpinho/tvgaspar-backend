@@ -1,13 +1,13 @@
 const config = require('./../config.js');
 const crypto = require("crypto");
 const jwt = require('jsonwebtoken');
-const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
 const modelUsuario = require('./../model/usuario.js');
 const functions = require('./../functions.js');
 const query = require('./../dao/query.js');
 
 /* Services */
 const createUsuario = function (req, res) {
+    const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
     const usuario = new modelUsuario(req.body);
     cipher.update(usuario.getSenha());
     usuario.setSenha(cipher.final(config.criptografia.tipo));
@@ -78,6 +78,7 @@ const alterPassword = function (req, res) {
         const decipher = crypto.createDecipher(config.criptografia.alg, config.criptografia.secret);
         decipher.update(rows.senha, config.criptografia.tipo);
         if (decipher.final() == req.body.senha){
+            const cipher = crypto.createCipher(config.criptografia.alg, config.criptografia.secret);
             cipher.update(req.body.novaSenha);
             functions.service(query.usuario.updateSenha, req, res, [cipher.final(config.criptografia.tipo), req.body.id], "", modelUsuario, false)
         }
