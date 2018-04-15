@@ -6,7 +6,7 @@ module.exports = function (router) {
         noticia.createNoticia(req, res);
     });
 
-    router.post('/getAllNoticias', (req, res) => {
+    router.get('/getAllNoticias', (req, res) => {
         noticia.getAllNoticias(req, res);
     });
 
@@ -21,4 +21,9 @@ module.exports = function (router) {
     router.post('/deleteNoticiaById', (req, res) => {
         noticia.deleteById(req, res);
     });
+
+    router.post('/selectNoticiaByTag', (req, res) => {
+        noticia.selectByTag(req, res);
+    });
+ 
 }

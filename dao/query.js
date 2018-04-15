@@ -23,7 +23,8 @@ const noticia = {
     update: "UPDATE noticia SET manchete = ?, subManchete = ?, texto = ?, autor = ?, dtCadastro = STR_TO_DATE(?, '%d/%m/%Y %H:%i') WHERE id = ?",
     selectAll: "SELECT * FROM noticia WHERE flgAtivo = 1",
     updateAprovacao: "UPDATE noticia SET aprovacao = ? WHERE id = ?",
-    deleteById: "UPDATE noticia SET flgAtivo = 0 WHERE id = ?"
+    deleteById: "UPDATE noticia SET flgAtivo = 0 WHERE id = ?",
+    selectByTag: "SELECT n.* FROM noticia n, tag t, noticiaTag nt WHERE t.titulo = ? AND nt.idTag = t.id AND nt.idNoticia = n.id"
 }
 
 const noticiaCategoria = {

@@ -22,6 +22,10 @@ const updateAprovacao = function(req, res){
 const deleteById = function(req, res){
     functions.service(query.noticia.deleteById, req, res, [req.body.id], "", modelNoticia, false);
 }
+
+const selectByTag = function(req, res){
+    functions.service(query.noticia.selectByTag, req, res, [req.body.titulo], "", modelNoticia, false);
+}
 /* end-Services */
 
 module.exports = {
@@ -29,5 +33,6 @@ module.exports = {
     getAllNoticias,
     updateNoticia,
     updateAprovacao,
-    deleteById
+    deleteById,
+    selectByTag
 };
