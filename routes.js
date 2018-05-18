@@ -1,5 +1,9 @@
 module.exports = function (router) {
+    /* Rotas que não precisam de token (site) */
+
     require('./routes/site.js')(router);
+
+    /* Rotas que precisam de token (backoffice) */
     require('./routes/usuario.js')(router);
     require('./routes/tag.js')(router);
     require('./routes/noticia.js')(router);
