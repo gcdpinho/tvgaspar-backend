@@ -6,7 +6,7 @@ module.exports = function (router) {
         noticia.createNoticia(req, res);
     });
 
-    router.post('/getAllNoticias', (req, res) => {
+    router.get('/getAllNoticias', (req, res) => {
         noticia.getAllNoticias(req, res);
     });
 
