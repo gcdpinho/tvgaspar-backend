@@ -1,4 +1,5 @@
 module.exports = function (router) {
+    require('./routes/site.js')(router);
     require('./routes/usuario.js')(router);
     require('./routes/tag.js')(router);
     require('./routes/noticia.js')(router);
