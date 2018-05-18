@@ -22,6 +22,15 @@ const updateAprovacao = function(req, res){
 const deleteById = function(req, res){
     functions.service(query.noticia.deleteById, req, res, [req.body.id], "", modelNoticia, false);
 }
+
+const getAllNoticiasAprovadas = function(req, res){
+    functions.service(query.noticia.selectAllNoticiaAprovada, req, res, [], "", modelNoticia, false);
+}
+
+const getNoticiasAprovadasByCategoria = function(req, res){
+    functions.service(query.noticia.selectNoticiaAprovadaByCategoria, req, res, [req.body.tituloCategoria], "", modelNoticia, false);
+}
+
 /* end-Services */
 
 module.exports = {
@@ -29,5 +38,7 @@ module.exports = {
     getAllNoticias,
     updateNoticia,
     updateAprovacao,
-    deleteById
+    deleteById,
+    getAllNoticiasAprovadas,
+    getNoticiasAprovadasByCategoria
 };
