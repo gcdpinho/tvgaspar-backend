@@ -65,6 +65,7 @@ CREATE TABLE noticia (
     manchete varchar(255) NOT NULL UNIQUE,
     subManchete varchar(255),
     texto MEDIUMTEXT NOT NULL,
+    resumo TINYTEXT NOT NULL,
     autor varchar(255),
     dtCadastro DATETIME NOT NULL,
     flgAtivo BOOLEAN DEFAULT 0,
