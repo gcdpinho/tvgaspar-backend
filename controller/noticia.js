@@ -28,7 +28,7 @@ const getAllNoticiasAprovadas = function(req, res){
 }
 
 const getNoticiasAprovadasByCategoria = function(req, res){
-    functions.service(query.noticia.selectNoticiaAprovadaByCategoria, req, res, [req.body.tituloCategoria], "", modelNoticia, false);
+    functions.service(query.noticia.selectNoticiaAprovadaByCategoria, req, res, [req.body.tituloTag], "", modelNoticia, false);
 }
 
 /* end-Services */

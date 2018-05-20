@@ -25,7 +25,8 @@ const noticia = {
     updateAprovacao: "UPDATE noticia SET aprovacao = ? WHERE id = ?",
     deleteById: "UPDATE noticia SET flgAtivo = 0 WHERE id = ?",
     selectAllNoticiaAprovada: "select n.id, n.manchete, n.submanchete, n.texto, n.resumo, n.autor, n.dtCadastro, c.titulo as categoriaTitulo, c.cor, i.titulo as imagemTitulo, i.link as imagemLink from noticia n inner join noticiaCategoria nc on nc.idNoticia = n.id inner join categoria c on c.id = nc.idCategoria left join noticiaImagem ni on ni.idNoticia = n.id left join imagem i on i.id = ni.idImagem where n.flgAtivo = 1 and n.aprovacao = 1 group by n.id order by n.dtCadastro desc",
-    selectNoticiaAprovadaByCategoria: "select n.*, c.*, i.*, t.titulo from noticia n inner join noticiaCategoria nc on nc.idNoticia = n.id inner join categoria c on c.id = nc.idCategoria left join noticiaImagem ni on ni.idNoticia = n.id left join imagem i on i.id = ni.idImagem inner join noticiaTag nt on nt.idNoticia = n.id inner join tag t on t.id = nt.idTag where n.flgAtivo = 1 and c.titulo = ? order by n.dtCadastro desc"
+    selectNoticiaAprovadaByTag: "select n.id, n.manchete, n.submanchete, n.texto, n.resumo, n.autor, n.dtCadastro, c.titulo as categoriaTitulo, c.cor, i.titulo as imagemTitulo, i.link as imagemLink from noticia n inner join noticiaCategoria nc on nc.idNoticia = n.id inner join categoria c on c.id = nc.idCategoria left join noticiaImagem ni on ni.idNoticia = n.id left join imagem i on i.id = ni.idImagem inner join noticiaTag nt on nt.idNoticia = n.id inner join tag t on t.id = nt.idTag where n.flgAtivo = 1 and n.aprovacao = 1 and t.titulo = ? group by n.id order by n.dtCadastro desc"
+    
 }
 
 const noticiaCategoria = {
