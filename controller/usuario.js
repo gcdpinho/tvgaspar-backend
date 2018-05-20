@@ -34,7 +34,9 @@ const findByLogin = function (req, res) {
                 message: "Falha na autenticação. Usuário não encontrado."
             });
         else {
-            var rows = JSON.parse(JSON.stringify(results[0]))
+            var rows = JSON.parse(JSON.stringify(results[0]));
+            console.log(rows);
+            console.log(rows.tipo);
             decipher.update(rows.senha, config.criptografia.tipo);
             if (decipher.final() != req.body.senha)
                 res.json({
