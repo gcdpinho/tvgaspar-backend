@@ -27,7 +27,7 @@ const getAllNoticiasAprovadas = function(req, res){
     functions.service(query.noticia.selectAllNoticiaAprovada, req, res, [], "", modelNoticia, false);
 }
 
-const getNoticiasAprovadasByCategoria = function(req, res){
+const getNoticiasAprovadasByTag = function(req, res){
     functions.service(query.noticia.selectNoticiaAprovadaByCategoria, req, res, [req.body.tituloTag], "", modelNoticia, false);
 }
 
@@ -40,5 +40,5 @@ module.exports = {
     updateAprovacao,
     deleteById,
     getAllNoticiasAprovadas,
-    getNoticiasAprovadasByCategoria
+    getNoticiasAprovadasByTag
 };
