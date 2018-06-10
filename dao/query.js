@@ -80,7 +80,8 @@ const video = {
     insert: "INSERT INTO video (titulo, texto, link) VALUES (?, ?, ?)",
     update: "UPDATE video SET titulo = ?, texto = ?, link = ? WHERE id = ?",
     selectAll: "SELECT * FROM video",
-    deleteById: "DELETE FROM video WHERE id = ?"
+    deleteById: "DELETE FROM video WHERE id = ?",
+    selectVideoByTag: "select v.* from video v inner join videoTag vt on v.id = vt.idVideo inner join tag t on t.id = vt.idTag where t.titulo = ?"
 }
 
 const videoTag = {

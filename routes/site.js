@@ -1,4 +1,5 @@
 const noticia = require('./../controller/noticia.js');
+const video = require('./../controller/video.js');
 
 module.exports = function (router) {
 
@@ -20,5 +21,9 @@ module.exports = function (router) {
 
     router.post('/getNoticiasAprovadasByIdNoticia', (req, res) => {
         noticia.getNoticiasAprovadasByIdNoticia(req, res);
+    });
+
+    router.post('/getVideoByTag', (req, res) => {
+        video.getVideoByTag(req, res);
     });
 }

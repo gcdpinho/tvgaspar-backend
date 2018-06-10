@@ -18,11 +18,16 @@ const updateVideo = function (req, res){
 const deleteById = function(req, res){
     functions.service(query.video.deleteById, req, res, [req.body.id], "", modelVideo, false);
 }
+
+const getVideoByTag = function(req, res){
+    functions.service(query.video.selectVideoByTag, req, res, [req.body.tituloTag], "", modelVideo, false);
+}
 /* end-Services */
 
 module.exports = {
     createVideo,
     getAllVideos,
     updateVideo,
-    deleteById
+    deleteById,
+    getVideoByTag
 };
