@@ -9,7 +9,7 @@ module.exports = function (router) {
     router.post('/getAllNoticias', (req, res) => {
         noticia.getAllNoticias(req, res);
     });
-
+    
     router.post('/updateNoticia', (req, res) => {
         noticia.updateNoticia(req, res);
     });

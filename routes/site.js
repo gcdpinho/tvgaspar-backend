@@ -1,10 +1,15 @@
 const noticia = require('./../controller/noticia.js');
 const video = require('./../controller/video.js');
+const categoria = require('./../controller/categoria.js');
 
 module.exports = function (router) {
 
     router.get('/getAllNoticiasAprovadas', (req, res) => {
         noticia.getAllNoticiasAprovadas(req, res);
+    });
+    
+    router.get('/getAllCategorias', (req, res) => {
+        categoria.getAllCategorias(req, res);
     });
 
     router.post('/getNoticiasAprovadasByTag', (req, res) => {
