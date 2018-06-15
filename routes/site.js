@@ -9,7 +9,7 @@ module.exports = function (router) {
     });
     
     router.get('/getAllCategorias', (req, res) => {
-        categoria.getAllCategorias(req, res);
+        categoria.getAllCategoriasFooter(req, res);
     });
 
     router.post('/getNoticiasAprovadasByTag', (req, res) => {

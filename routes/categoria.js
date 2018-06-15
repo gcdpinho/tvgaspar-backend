@@ -6,9 +6,9 @@ module.exports = function (router) {
         categoria.createCategoria(req, res);
     });
 
-    // router.get('/getAllCategorias', (req, res) => {
-    //     categoria.getAllCategorias(req, res);
-    // });
+    router.post('/getAllCategorias', (req, res) => {
+        categoria.getAllCategorias(req, res);
+    });
 
     router.post('/updateCategoria', (req, res) => {
         categoria.updateCategoria(req, res);
