@@ -1,13 +1,14 @@
 const noticia = require('./../controller/noticia.js');
 const video = require('./../controller/video.js');
 const categoria = require('./../controller/categoria.js');
+const publicidade = require('./../controller/publicidade.js');
 
 module.exports = function (router) {
 
     router.get('/getAllNoticiasAprovadas', (req, res) => {
         noticia.getAllNoticiasAprovadas(req, res);
     });
-    
+
     router.get('/getAllCategorias', (req, res) => {
         categoria.getAllCategoriasFooter(req, res);
     });
@@ -31,4 +32,10 @@ module.exports = function (router) {
     router.post('/getVideoByTag', (req, res) => {
         video.getVideoByTag(req, res);
     });
+
+    router.post('/getPublicidadesByTipo', (req, res) => {
+        publicidade.getPublicidadesByTipo(req, res);
+    });
+
+
 }

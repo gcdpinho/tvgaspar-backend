@@ -18,11 +18,16 @@ const updatePublicidade = function (req, res) {
 const deleteById = function (req, res) {
     functions.service(query.publicidade.deleteById, req, res, [req.body.id], "", modelPublicidade, false);
 }
+
+const getPublicidadesByTipo = function (req, res) {
+    functions.service(query.publicidade.selectPublicidadesByTipo, req, res, [req.body.tipo], "", modelPublicidade, false);
+}
 /* end-Services */
 
 module.exports = {
     createPublicidade,
     getAllPublicidades,
     updatePublicidade,
-    deleteById
+    deleteById,
+    getPublicidadesByTipo
 };

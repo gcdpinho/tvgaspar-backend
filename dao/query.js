@@ -55,7 +55,8 @@ const publicidade = {
     insert: "INSERT INTO publicidade (titulo, tipo, texto, link, flgAtivo, idImagem) VALUES (?, ?, ?, ?, ?, ?)",
     update: "UPDATE publicidade SET titulo = ?, tipo = ?, texto = ?, link = ? WHERE id = ?",
     selectAll: "SELECT * FROM publicidade WHERE flgAtivo = 1",
-    deleteById: "UPDATE publicidade SET flgAtivo = 0 WHERE id = ?"
+    deleteById: "UPDATE publicidade SET flgAtivo = 0 WHERE id = ?",
+    selectPublicidadesByTipo: "SELECT p.titulo, p.tipo, p.texto, p.link, i.titulo as imagemTitulo, i.link as imagemLink FROM publicidade p inner join imagem i on i.id = p.idImagem WHERE tipo = ? and flgAtivo = 1"
 }
 
 const tag = {

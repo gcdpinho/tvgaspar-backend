@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 
 app.use('/', router);
 
-app.listen(process.env.PORT || 3000);
+const port = process.env.PORT || 3000;
+app.listen(port);
 
-console.log("APP RUN!")
+console.log("App run on port " + port);
