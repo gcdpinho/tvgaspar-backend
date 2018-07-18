@@ -11,9 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "bookshelf": "^0.13.3",
     "crypto": "^1.0.1",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.1",
+    "knex": "^0.15.1",
     "mysql": "^2.15.0"
   }
 }

@@ -3,6 +3,7 @@ const app = express();
 const router = express.Router();
 const bodyParser = require('body-parser');
 require('./routes.js')(router);
+const categoriaRoute = require('./routes/categoriaRoute');
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -17,7 +18,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.use('/', router);
+// app.use('/', router);
+app.use('/categoria', categoriaRoute)
 
 const port = process.env.PORT || 3000;
 app.listen(port);
