@@ -1,11 +1,8 @@
 const db = {
-    client: 'mysql',
-    connection: {
-        host: 'sql129.main-hosting.eu',
-        user: 'u709009684_tvgas',
-        password: 'tvgaspar12345',
-        database: 'u709009684_tvgas'
-    }
+    host: 'sql129.main-hosting.eu',
+    user: 'u709009684_tvgas',
+    password: 'tvgaspar12345',
+    database: 'u709009684_tvgas'
 }
 
 const criptografia = {

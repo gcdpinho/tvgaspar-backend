@@ -7,7 +7,7 @@ module.exports = function (router) {
         usuario.findByLogin(req, res);
     });
 
-    // router.use(functions.verifyToken);
+    router.use(functions.verifyToken);
 
     router.post('/findByToken', (req, res) => {
         usuario.findByToken(req, res);
